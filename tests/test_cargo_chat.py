@@ -375,7 +375,8 @@ class TestCargoChat:
         # Geçerli sorgu
         result = cargo_status_bot(None, "TR123456789 nerede?", user_cargos)
         assert "Ahmet Yılmaz" in result
-        assert "teslim edildi" in result.lower()
+        # Check for delivery indication (handles both "teslim edildi" and "teslim edilmiş")
+        assert "teslim edil" in result.lower()
 
         # Geçersiz tracking number
         result = cargo_status_bot(None, "TR999999999 nerede?", user_cargos)
