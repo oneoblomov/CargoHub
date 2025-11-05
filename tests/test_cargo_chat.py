@@ -17,10 +17,15 @@ sys.modules["streamlit"] = MagicMock()
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from cargo_chat import cargo_status_bot  # noqa: E402
-from cargo_chat import (check_cancel_eligibility, check_return_eligibility,
-                        create_cancel_request, create_return_request,
-                        detect_return_cancel_intent, extract_tracking_number,
-                        load_cargo_data)
+from cargo_chat import (
+    check_cancel_eligibility,
+    check_return_eligibility,
+    create_cancel_request,
+    create_return_request,
+    detect_return_cancel_intent,
+    extract_tracking_number,
+    load_cargo_data,
+)
 
 
 class TestCargoChat:

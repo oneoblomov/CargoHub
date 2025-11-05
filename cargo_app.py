@@ -2,9 +2,14 @@ import time
 
 import streamlit as st
 
-from cargo_chat import (cargo_status_bot, create_cancel_request,
-                        create_return_request, load_cargo_data, load_model,
-                        save_cargo_data)
+from cargo_chat import (
+    cargo_status_bot,
+    create_cancel_request,
+    create_return_request,
+    load_cargo_data,
+    load_model,
+    save_cargo_data,
+)
 
 # Sayfa konfigürasyonu - Modern görünüm
 st.set_page_config(
