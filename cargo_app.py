@@ -1,17 +1,27 @@
-import streamlit as st
 import time
-from cargo_chat import load_model, cargo_status_bot, load_cargo_data, save_cargo_data, create_return_request, create_cancel_request
+
+import streamlit as st
+
+from cargo_chat import (
+    cargo_status_bot,
+    create_cancel_request,
+    create_return_request,
+    load_cargo_data,
+    load_model,
+    save_cargo_data,
+)
 
 # Sayfa konfigürasyonu - Modern görünüm
 st.set_page_config(
     page_title="🚚 FastShip Kargo Takip",
     page_icon="�",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # CSS ile modern tasarım
-st.markdown("""
+st.markdown(
+    """
 <style>
     /* Ana tema renkleri */
     :root {
@@ -128,12 +138,16 @@ st.markdown("""
         100% { transform: rotate(360deg); }
     }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
+
 
 # Kullanıcı girişi kontrolü
 def check_user_login(user_id):
     cargo_data = load_cargo_data()
     return user_id in cargo_data
+
 
 # Kullanıcının kargolarını getir
 def get_user_cargos(user_id):
@@ -142,6 +156,7 @@ def get_user_cargos(user_id):
         return cargo_data[user_id]
     return None
 
+
 # Durum badge'i oluştur
 def get_status_badge(status):
     status_classes = {
@@ -149,7 +164,7 @@ def get_status_badge(status):
         "Yolda": "status-in-transit",
         "Hazırlanıyor": "status-preparing",
         "Dağıtımda": "status-in-transit",
-        "İade İşlemi": "status-return"
+        "İade İşlemi": "status-return",
     }
 
     status_icons = {
@@ -157,7 +172,7 @@ def get_status_badge(status):
         "Yolda": "🚚",
         "Hazırlanıyor": "📦",
         "Dağıtımda": "🚚",
-        "İade İşlemi": "↩️"
+        "İade İşlemi": "↩️",
     }
 
     css_class = status_classes.get(status, "status-preparing")
@@ -165,11 +180,14 @@ def get_status_badge(status):
 
     return f'<span class="status-badge {css_class}">{icon} {status}</span>'
 
+
 # Ana uygulama
 def main():
     # Sidebar - Şirket bilgileri ve navigation
     with st.sidebar:
-        st.image("https://via.placeholder.com/200x80/2563eb/white?text=FastShip", width=200)
+        st.image(
+            "https://via.placeholder.com/200x80/2563eb/white?text=FastShip", width=200
+        )
         st.markdown("### 🚚 FastShip Kargo")
         st.markdown("Türkiye'nin en güvenilir kargo şirketi")
 
@@ -181,18 +199,21 @@ def main():
         st.markdown("🕒 08:00 - 24:00")
 
     # Ana başlık
-    st.markdown("""
+    st.markdown(
+        """
     <div class="main-header">
         <h1>🚚 FastShip Kargo Takip Sistemi</h1>
         <p>Gemma AI ile akıllı kargo durumu sorgulama</p>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
     # Modeli yükle
     pipe = load_model()
 
     # Session state yönetimi
-    if 'logged_in' not in st.session_state:
+    if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
         st.session_state.user_id = None
         st.session_state.user_data = None
@@ -211,10 +232,12 @@ def main():
                 user_id = st.text_input(
                     "Kullanıcı ID",
                     placeholder="örn: user123, user456, user789, user999",
-                    help="Demo kullanıcıları: user123, user456, user789, user999"
+                    help="Demo kullanıcıları: user123, user456, user789, user999",
                 )
 
-                submitted = st.form_submit_button("🚀 Giriş Yap", use_container_width=True)
+                submitted = st.form_submit_button(
+                    "🚀 Giriş Yap", use_container_width=True
+                )
 
                 if submitted:
                     if check_user_login(user_id):
@@ -233,20 +256,24 @@ def main():
 
         with col2:
             st.markdown("### 👥 Demo Kullanıcıları")
-            st.info("""
+            st.info(
+                """
             **user123** - Ahmet Yılmaz (2 kargo)
             **user456** - Ayşe Kaya (1 kargo)
             **user789** - Mehmet Demir (2 kargo)
             **user999** - Zeynep Öztürk (1 kargo - iade)
-            """)
+            """
+            )
 
             st.markdown("### 📋 Özellikler")
-            st.markdown("""
+            st.markdown(
+                """
             - ✅ AI destekli sorgulama
             - ✅ Gerçek zamanlı takip
             - ✅ Detaylı kargo geçmişi
             - ✅ Mobil uyumlu tasarım
-            """)
+            """
+            )
 
     # Ana dashboard
     else:
@@ -260,13 +287,21 @@ def main():
             col1, col2, col3 = st.columns([2, 1, 1])
 
             with col1:
-                st.markdown(f"### 👋 Hoş Geldiniz, {st.session_state.user_data['name']}")
-                st.caption(f"📧 {st.session_state.user_data.get('email', 'N/A')} | 📱 {st.session_state.user_data.get('phone', 'N/A')}")
+                st.markdown(
+                    f"### 👋 Hoş Geldiniz, {st.session_state.user_data['name']}"
+                )
+                st.caption(
+                    f"📧 {st.session_state.user_data.get('email', 'N/A')} | 📱 {st.session_state.user_data.get('phone', 'N/A')}"
+                )
 
             with col2:
                 # Kargo istatistikleri
-                total_cargos = len(st.session_state.user_data['cargos'])
-                delivered = sum(1 for c in st.session_state.user_data['cargos'].values() if c['status'] == 'Teslim edildi')
+                total_cargos = len(st.session_state.user_data["cargos"])
+                delivered = sum(
+                    1
+                    for c in st.session_state.user_data["cargos"].values()
+                    if c["status"] == "Teslim edildi"
+                )
                 st.metric("Toplam Kargo", total_cargos)
                 st.metric("Teslim Edildi", delivered)
 
@@ -275,15 +310,19 @@ def main():
                     st.session_state.logged_in = False
                     st.session_state.user_id = None
                     st.session_state.user_data = None
-                    st.session_state.pending_actions = []  # Onay bekleyen işlemleri temizle
-                    if 'chat_history' in st.session_state:
+                    st.session_state.pending_actions = (
+                        []
+                    )  # Onay bekleyen işlemleri temizle
+                    if "chat_history" in st.session_state:
                         st.session_state.chat_history = []
                     st.rerun()
 
             st.markdown("---")
 
             # Tab sistemi
-            tab1, tab2, tab3, tab4 = st.tabs(["📦 Kargolarım", "💬 AI Asistan", "📊 İstatistikler", "❓ Yardım"])
+            tab1, tab2, tab3, tab4 = st.tabs(
+                ["📦 Kargolarım", "💬 AI Asistan", "📊 İstatistikler", "❓ Yardım"]
+            )
 
             # Tab 1: Kargolar
             with tab1:
@@ -293,25 +332,36 @@ def main():
                 col_search, col_filter = st.columns([2, 1])
 
                 with col_search:
-                    search_term = st.text_input("� Kargo ara...", placeholder="Ürün adı veya takip numarası")
+                    search_term = st.text_input(
+                        "� Kargo ara...", placeholder="Ürün adı veya takip numarası"
+                    )
 
                 with col_filter:
                     status_filter = st.selectbox(
                         "📋 Durum Filtresi",
-                        ["Tümü", "Teslim edildi", "Yolda", "Hazırlanıyor", "Dağıtımda", "İade İşlemi"]
+                        [
+                            "Tümü",
+                            "Teslim edildi",
+                            "Yolda",
+                            "Hazırlanıyor",
+                            "Dağıtımda",
+                            "İade İşlemi",
+                        ],
                     )
 
                 # Kargoları listele
                 filtered_cargos = {}
-                for tracking_num, cargo in st.session_state.user_data['cargos'].items():
+                for tracking_num, cargo in st.session_state.user_data["cargos"].items():
                     # Arama filtresi
                     if search_term:
-                        if not (search_term.lower() in cargo['description'].lower() or
-                               search_term in tracking_num):
+                        if not (
+                            search_term.lower() in cargo["description"].lower()
+                            or search_term in tracking_num
+                        ):
                             continue
 
                     # Durum filtresi
-                    if status_filter != "Tümü" and cargo['status'] != status_filter:
+                    if status_filter != "Tümü" and cargo["status"] != status_filter:
                         continue
 
                     filtered_cargos[tracking_num] = cargo
@@ -320,32 +370,53 @@ def main():
                     st.info("🔍 Aramanızla eşleşen kargo bulunamadı.")
                 else:
                     for tracking_num, cargo in filtered_cargos.items():
-                        with st.expander(f"📦 {tracking_num} - {cargo['description']}", expanded=False):
+                        with st.expander(
+                            f"📦 {tracking_num} - {cargo['description']}",
+                            expanded=False,
+                        ):
                             col_a, col_b = st.columns([1, 1])
 
                             with col_a:
                                 st.markdown("**📍 Durum ve Konum**")
-                                st.markdown(get_status_badge(cargo['status']), unsafe_allow_html=True)
+                                st.markdown(
+                                    get_status_badge(cargo["status"]),
+                                    unsafe_allow_html=True,
+                                )
                                 st.write(f"📍 **Konum:** {cargo['location']}")
-                                st.write(f"⚖️ **Ağırlık:** {cargo.get('weight', 'Belirtilmemiş')}")
-                                st.write(f"📏 **Boyutlar:** {cargo.get('dimensions', 'Belirtilmemiş')}")
+                                st.write(
+                                    f"⚖️ **Ağırlık:** {cargo.get('weight', 'Belirtilmemiş')}"
+                                )
+                                st.write(
+                                    f"📏 **Boyutlar:** {cargo.get('dimensions', 'Belirtilmemiş')}"
+                                )
 
                             with col_b:
                                 st.markdown("**⏰ Zaman Bilgileri**")
-                                st.write(f"📅 **Son Güncelleme:** {cargo['last_update']}")
-                                st.write(f"🚚 **Tahmini Teslimat:** {cargo['estimated_delivery']}")
-                                st.write(f"🏢 **Kargo Firması:** {cargo.get('carrier', 'FastShip')}")
+                                st.write(
+                                    f"📅 **Son Güncelleme:** {cargo['last_update']}"
+                                )
+                                st.write(
+                                    f"🚚 **Tahmini Teslimat:** {cargo['estimated_delivery']}"
+                                )
+                                st.write(
+                                    f"🏢 **Kargo Firması:** {cargo.get('carrier', 'FastShip')}"
+                                )
 
                             # Tracking history
-                            if 'tracking_history' in cargo and cargo['tracking_history']:
+                            if (
+                                "tracking_history" in cargo
+                                and cargo["tracking_history"]
+                            ):
                                 st.markdown("**📋 Kargo Geçmişi**")
                                 history_df = []
-                                for event in cargo['tracking_history']:
-                                    history_df.append({
-                                        "Tarih": event['date'],
-                                        "Durum": event['status'],
-                                        "Konum": event['location']
-                                    })
+                                for event in cargo["tracking_history"]:
+                                    history_df.append(
+                                        {
+                                            "Tarih": event["date"],
+                                            "Durum": event["status"],
+                                            "Konum": event["location"],
+                                        }
+                                    )
 
                                 st.table(history_df)
 
@@ -354,7 +425,7 @@ def main():
                 st.markdown("### 💬 AI Müşteri Hizmetleri Asistanı")
 
                 # Chat history
-                if 'chat_history' not in st.session_state:
+                if "chat_history" not in st.session_state:
                     st.session_state.chat_history = []
 
                 # Chat container
@@ -364,21 +435,29 @@ def main():
 
                 with chat_container:
                     if not st.session_state.chat_history:
-                        st.info("💡 Henüz hiç mesaj göndermediniz. Aşağıdan soru sorun!")
+                        st.info(
+                            "💡 Henüz hiç mesaj göndermediniz. Aşağıdan soru sorun!"
+                        )
                     else:
                         for message in st.session_state.chat_history:
-                            if message['role'] == 'user':
-                                st.markdown(f"""
+                            if message["role"] == "user":
+                                st.markdown(
+                                    f"""
                                 <div class="chat-message chat-user">
                                     <strong>Siz:</strong> {message['content']}
                                 </div>
-                                """, unsafe_allow_html=True)
+                                """,
+                                    unsafe_allow_html=True,
+                                )
                             else:
-                                st.markdown(f"""
+                                st.markdown(
+                                    f"""
                                 <div class="chat-message chat-assistant">
                                     <strong>🤖 AI Asistan:</strong> {message['content']}
                                 </div>
-                                """, unsafe_allow_html=True)
+                                """,
+                                    unsafe_allow_html=True,
+                                )
 
                 # Chat input
                 st.markdown("#### 💭 Sorunuzu Sorun")
@@ -386,26 +465,28 @@ def main():
                     user_question = st.text_input(
                         "Kargo durumunuz hakkında soru sorun:",
                         placeholder="örn: TR123456789 numaralı kargom nerede?",
-                        help="AI asistanımız Türkçe sorularınızı anlayabilir"
+                        help="AI asistanımız Türkçe sorularınızı anlayabilir",
                     )
-                    submitted = st.form_submit_button("📤 Gönder", use_container_width=True)
+                    submitted = st.form_submit_button(
+                        "📤 Gönder", use_container_width=True
+                    )
 
                     if submitted and user_question:
                         # Kullanıcı mesajını ekle
-                        st.session_state.chat_history.append({
-                            'role': 'user',
-                            'content': user_question
-                        })
+                        st.session_state.chat_history.append(
+                            {"role": "user", "content": user_question}
+                        )
 
                         # AI yanıtı al
                         with st.spinner("🤖 AI düşünüyor..."):
-                            ai_response = cargo_status_bot(pipe, user_question, st.session_state.user_data)
+                            ai_response = cargo_status_bot(
+                                pipe, user_question, st.session_state.user_data
+                            )
 
                         # AI yanıtını ekle
-                        st.session_state.chat_history.append({
-                            'role': 'assistant',
-                            'content': ai_response
-                        })
+                        st.session_state.chat_history.append(
+                            {"role": "assistant", "content": ai_response}
+                        )
 
                         st.rerun()
 
@@ -414,26 +495,42 @@ def main():
                     st.markdown("---")
                     st.markdown("### ⚠️ Onay Bekleyen İşlemler")
 
-                    for i, action in enumerate(st.session_state.pending_actions[:]):  # Copy to avoid modification during iteration
+                    for i, action in enumerate(
+                        st.session_state.pending_actions[:]
+                    ):  # Copy to avoid modification during iteration
                         with st.container():
                             # İşlem başlığı
-                            action_type_text = "🔄 İade Talebi" if action['type'] == 'return' else "❌ İptal Talebi"
-                            st.markdown(f"#### {action_type_text} - {action['tracking_number']}")
+                            action_type_text = (
+                                "🔄 İade Talebi"
+                                if action["type"] == "return"
+                                else "❌ İptal Talebi"
+                            )
+                            st.markdown(
+                                f"#### {action_type_text} - {action['tracking_number']}"
+                            )
 
                             # Kargo bilgileri
                             col_info, col_confirm = st.columns([2, 1])
 
                             with col_info:
                                 st.markdown("**📦 Ürün Bilgileri:**")
-                                st.write(f"• Ürün: {action['cargo_info']['description']}")
-                                st.write(f"• Mevcut Durum: {action['cargo_info']['status']}")
+                                st.write(
+                                    f"• Ürün: {action['cargo_info']['description']}"
+                                )
+                                st.write(
+                                    f"• Mevcut Durum: {action['cargo_info']['status']}"
+                                )
                                 st.write(f"• Konum: {action['cargo_info']['location']}")
                                 st.write(f"• Talep Tarihi: {action['created_at']}")
 
-                                if action['type'] == 'return':
-                                    st.info("ℹ️ Bu işlem sonrasında kargo iade merkezi tarafından alınacak ve iade süreci başlatılacaktır.")
+                                if action["type"] == "return":
+                                    st.info(
+                                        "ℹ️ Bu işlem sonrasında kargo iade merkezi tarafından alınacak ve iade süreci başlatılacaktır."
+                                    )
                                 else:
-                                    st.warning("⚠️ Bu işlem sonrasında kargo tamamen iptal edilecek ve geri alınamayacaktır.")
+                                    st.warning(
+                                        "⚠️ Bu işlem sonrasında kargo tamamen iptal edilecek ve geri alınamayacaktır."
+                                    )
 
                             with col_confirm:
                                 st.markdown("**Onay Durumu**")
@@ -443,34 +540,41 @@ def main():
                                 confirmed = st.checkbox(
                                     "İşlemi onaylıyorum",
                                     key=checkbox_key,
-                                    help="Bu kutuyu işaretleyerek işlemi onayladığınızı belirtin"
+                                    help="Bu kutuyu işaretleyerek işlemi onayladığınızı belirtin",
                                 )
 
                                 # İşlem butonları
                                 if confirmed:
-                                    if st.button(f"✅ İşlemi Tamamla", key=f"execute_{action['id']}", use_container_width=True, type="primary"):
+                                    if st.button(
+                                        "✅ İşlemi Tamamla",
+                                        key=f"execute_{action['id']}",
+                                        use_container_width=True,
+                                        type="primary",
+                                    ):
                                         # İşlemi gerçekleştir
                                         cargo_data = load_cargo_data()
                                         user_id = st.session_state.user_id
 
-                                        if action['type'] == 'return':
+                                        if action["type"] == "return":
                                             success, message = create_return_request(
-                                                action['tracking_number'],
+                                                action["tracking_number"],
                                                 cargo_data[user_id],
-                                                action['reason']
+                                                action["reason"],
                                             )
                                         else:  # cancel
                                             success, message = create_cancel_request(
-                                                action['tracking_number'],
+                                                action["tracking_number"],
                                                 cargo_data[user_id],
-                                                action['reason']
+                                                action["reason"],
                                             )
 
                                         if success:
                                             # Veritabanını güncelle
                                             save_cargo_data(cargo_data)
                                             # Session state'i güncelle
-                                            st.session_state.user_data = cargo_data[user_id]
+                                            st.session_state.user_data = cargo_data[
+                                                user_id
+                                            ]
                                             # İşlemi listeden çıkar
                                             st.session_state.pending_actions.pop(i)
 
@@ -482,10 +586,16 @@ def main():
 
                                         st.rerun()
                                 else:
-                                    st.info("📝 İşlemi tamamlamak için yukarıdaki onay kutusunu işaretleyin")
+                                    st.info(
+                                        "📝 İşlemi tamamlamak için yukarıdaki onay kutusunu işaretleyin"
+                                    )
 
                                 # İptal butonu (checkbox işaretlenmemiş olsa da)
-                                if st.button(f"❌ Talebi İptal Et", key=f"cancel_{action['id']}", use_container_width=True):
+                                if st.button(
+                                    "❌ Talebi İptal Et",
+                                    key=f"cancel_{action['id']}",
+                                    use_container_width=True,
+                                ):
                                     st.session_state.pending_actions.pop(i)
                                     st.info("📝 İade/iptal talebi iptal edildi.")
                                     st.rerun()
@@ -505,21 +615,21 @@ def main():
                     if st.button("📄 Sohbeti Dışa Aktar", use_container_width=True):
                         chat_text = "FastShip AI Asistan Sohbet Geçmişi\n\n"
                         for msg in st.session_state.chat_history:
-                            role = "Siz" if msg['role'] == 'user' else "AI Asistan"
+                            role = "Siz" if msg["role"] == "user" else "AI Asistan"
                             chat_text += f"{role}: {msg['content']}\n\n"
 
                         st.download_button(
                             label="📥 İndir",
                             data=chat_text,
                             file_name="fastship_chat_history.txt",
-                            mime="text/plain"
+                            mime="text/plain",
                         )
 
             # Tab 3: İstatistikler
             with tab3:
                 st.markdown("### � Kargo İstatistikleri")
 
-                user_cargos = st.session_state.user_data['cargos']
+                user_cargos = st.session_state.user_data["cargos"]
 
                 # İstatistik kartları
                 col1, col2, col3, col4 = st.columns(4)
@@ -528,15 +638,25 @@ def main():
                     st.metric("Toplam Kargo", len(user_cargos))
 
                 with col2:
-                    delivered = sum(1 for c in user_cargos.values() if c['status'] == 'Teslim edildi')
+                    delivered = sum(
+                        1
+                        for c in user_cargos.values()
+                        if c["status"] == "Teslim edildi"
+                    )
                     st.metric("Teslim Edildi", delivered)
 
                 with col3:
-                    in_transit = sum(1 for c in user_cargos.values() if c['status'] in ['Yolda', 'Dağıtımda'])
+                    in_transit = sum(
+                        1
+                        for c in user_cargos.values()
+                        if c["status"] in ["Yolda", "Dağıtımda"]
+                    )
                     st.metric("Yolda", in_transit)
 
                 with col4:
-                    preparing = sum(1 for c in user_cargos.values() if c['status'] == 'Hazırlanıyor')
+                    preparing = sum(
+                        1 for c in user_cargos.values() if c["status"] == "Hazırlanıyor"
+                    )
                     st.metric("Hazırlanıyor", preparing)
 
                 # Durum dağılımı
@@ -544,20 +664,23 @@ def main():
 
                 status_counts = {}
                 for cargo in user_cargos.values():
-                    status = cargo['status']
+                    status = cargo["status"]
                     status_counts[status] = status_counts.get(status, 0) + 1
 
                 # Basit bar chart
                 for status, count in status_counts.items():
                     percentage = (count / len(user_cargos)) * 100
-                    st.progress(percentage / 100, text=f"{status}: {count} kargo ({percentage:.1f}%)")
+                    st.progress(
+                        percentage / 100,
+                        text=f"{status}: {count} kargo ({percentage:.1f}%)",
+                    )
 
                 # Kargo firması dağılımı
                 st.markdown("#### 🏢 Kargo Firması Dağılımı")
 
                 carrier_counts = {}
                 for cargo in user_cargos.values():
-                    carrier = cargo.get('carrier', 'FastShip')
+                    carrier = cargo.get("carrier", "FastShip")
                     carrier_counts[carrier] = carrier_counts.get(carrier, 0) + 1
 
                 for carrier, count in carrier_counts.items():
@@ -570,53 +693,58 @@ def main():
                 faq_data = [
                     {
                         "question": "Takip numaramı nasıl öğrenebilirim?",
-                        "answer": "Sipariş onay mailinizde veya SMS'inizde takip numaranızı bulabilirsiniz. Ayrıca müşteri hizmetlerimizle iletişime geçebilirsiniz."
+                        "answer": "Sipariş onay mailinizde veya SMS'inizde takip numaranızı bulabilirsiniz. Ayrıca müşteri hizmetlerimizle iletişime geçebilirsiniz.",
                     },
                     {
                         "question": "Kargom ne zaman teslim edilir?",
-                        "answer": "Tahmini teslimat süresi kargo detaylarınızda belirtilmiştir. Trafik, hava koşulları gibi faktörler teslimatı etkileyebilir."
+                        "answer": "Tahmini teslimat süresi kargo detaylarınızda belirtilmiştir. Trafik, hava koşulları gibi faktörler teslimatı etkileyebilir.",
                     },
                     {
                         "question": "Kargomu iade edebilir miyim?",
-                        "answer": "Evet, teslim edilmiş kargoları teslim tarihinden itibaren 14 gün içinde iade edebilirsiniz. AI asistanımıza 'TR123456789 iade et' şeklinde mesaj göndererek iade talebi oluşturabilirsiniz."
+                        "answer": "Evet, teslim edilmiş kargoları teslim tarihinden itibaren 14 gün içinde iade edebilirsiniz. AI asistanımıza 'TR123456789 iade et' şeklinde mesaj göndererek iade talebi oluşturabilirsiniz.",
                     },
                     {
                         "question": "Kargomu iptal edebilir miyim?",
-                        "answer": "Evet, henüz yola çıkmamış (Hazırlanıyor durumunda) kargoları iptal edebilirsiniz. AI asistanımıza 'TR123456789 iptal et' şeklinde mesaj göndererek iptal talebi oluşturabilirsiniz."
+                        "answer": "Evet, henüz yola çıkmamış (Hazırlanıyor durumunda) kargoları iptal edebilirsiniz. AI asistanımıza 'TR123456789 iptal et' şeklinde mesaj göndererek iptal talebi oluşturabilirsiniz.",
                     },
                     {
                         "question": "İade veya iptal işlemi nasıl yapılır?",
-                        "answer": "AI asistanımıza kargo takip numaranızla birlikte 'iade et' veya 'iptal et' deyin. Sistem uygunluk kontrolü yapacak ve onayınızla işlemi başlatacaktır."
+                        "answer": "AI asistanımıza kargo takip numaranızla birlikte 'iade et' veya 'iptal et' deyin. Sistem uygunluk kontrolü yapacak ve onayınızla işlemi başlatacaktır.",
                     },
                     {
                         "question": "Kargo sigortalı mı?",
-                        "answer": "Kargo sigorta durumu ürün detaylarınızda belirtilmiştir. Değerli ürünler için sigorta önerilir."
+                        "answer": "Kargo sigorta durumu ürün detaylarınızda belirtilmiştir. Değerli ürünler için sigorta önerilir.",
                     },
                     {
                         "question": "Müşteri hizmetleri nasıl çalışır?",
-                        "answer": "7/24 canlı destek, e-posta ve telefon ile bize ulaşabilirsiniz. AI asistanımız da sorularınızı yanıtlayabilir."
-                    }
+                        "answer": "7/24 canlı destek, e-posta ve telefon ile bize ulaşabilirsiniz. AI asistanımız da sorularınızı yanıtlayabilir.",
+                    },
                 ]
 
                 for faq in faq_data:
                     with st.expander(f"❓ {faq['question']}"):
-                        st.write(faq['answer'])
+                        st.write(faq["answer"])
 
                 st.markdown("---")
 
                 st.markdown("### 📞 İletişim Bilgileri")
-                st.info("""
+                st.info(
+                    """
                 **📧 E-posta:** destek@fastship.com.tr
                 **📱 Telefon:** 0850 123 45 67
                 **🕒 Çalışma Saatleri:** 08:00 - 24:00 (7/24)
                 **📍 Adres:** İstanbul, Türkiye
-                """)
+                """
+                )
 
                 st.markdown("### 🏢 Hakkımızda")
-                st.write("""
+                st.write(
+                    """
                 FastShip, Türkiye'nin önde gelen kargo ve lojistik şirketidir.
                 10 yılı aşkın tecrübemizle güvenli, hızlı ve güvenilir kargo hizmetleri sunuyoruz.
-                """)
+                """
+                )
+
 
 if __name__ == "__main__":
     main()

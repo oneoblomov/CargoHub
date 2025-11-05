@@ -1,29 +1,30 @@
-import pytest
-import sqlite3
-import json
 import os
-from datetime import datetime
-from unittest.mock import patch, MagicMock, mock_open
+import sqlite3
 import sys
+from datetime import datetime
+from unittest.mock import MagicMock, patch
 
-# Mock external dependencies before importing our modules
+import pytest
+
+# Mock external dependencies BEFORE any other imports
 sys.modules["transformers"] = MagicMock()
 sys.modules["transformers.pipeline"] = MagicMock()
 sys.modules["huggingface_hub"] = MagicMock()
 sys.modules["huggingface_hub.login"] = MagicMock()
 sys.modules["streamlit"] = MagicMock()
 
-# Now import our modules
-from cargo_chat import (
-    load_cargo_data,
-    save_cargo_data,
-    extract_tracking_number,
-    detect_return_cancel_intent,
-    check_return_eligibility,
-    check_cancel_eligibility,
-    create_return_request,
-    create_cancel_request,
+# Test modüllerini import et
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+
+from cargo_chat import (  # noqa: E402
     cargo_status_bot,
+    check_cancel_eligibility,
+    check_return_eligibility,
+    create_cancel_request,
+    create_return_request,
+    detect_return_cancel_intent,
+    extract_tracking_number,
+    load_cargo_data,
 )
 
 

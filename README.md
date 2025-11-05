@@ -312,6 +312,16 @@ GitHub Actions ile otomatik test ve kalite kontrolü:
 - **Secrets:** HF_TOKEN güvenli saklama
 - **Python Path:** Otomatik ayarlanır
 
+#### Pipeline Özellikleri
+
+- **Otomatik Tetikleme:** Push/PR main/develop branch'lerinde
+- **Python 3.12:** Standartlaştırılmış runtime
+- **Mock Testing:** External dependencies (transformers, streamlit, faker) mock'lanır
+- **Code Quality:** Black formatting, isort import sorting, flake8 linting
+- **Test Coverage:** pytest-cov ile coverage raporları
+- **Database Setup:** Otomatik SQLite veritabanı kurulumu
+- **Environment Variables:** PYTHONPATH ve HF_TOKEN yönetimi
+
 ## 📝 Lisans
 
 Bu proje eğitim amaçlı geliştirilmiştir.

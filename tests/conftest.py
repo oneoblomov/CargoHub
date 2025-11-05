@@ -1,10 +1,12 @@
-import pytest
 import os
 from unittest.mock import MagicMock
+
+import pytest
 
 # Set environment variables to disable GPU and problematic imports
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 
 @pytest.fixture(scope="session", autouse=True)
 def mock_external_dependencies():
@@ -24,5 +26,6 @@ def mock_external_dependencies():
     sys.modules["huggingface_hub"] = mock_hf_hub
     sys.modules["huggingface_hub.login"] = mock_hf_hub.login
     sys.modules["streamlit"] = MagicMock()
+    sys.modules["faker"] = MagicMock()
 
     yield

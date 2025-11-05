@@ -1,19 +1,20 @@
-import streamlit as st
-import sqlite3
-import pandas as pd
-from datetime import datetime
 import json
+import sqlite3
+
+import pandas as pd
+import streamlit as st
 
 # Sayfa konfigürasyonu
 st.set_page_config(
     page_title="📊 FastShip Database Viewer",
     page_icon="🗃️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # CSS stilleri
-st.markdown("""
+st.markdown(
+    """
 <style>
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -41,14 +42,18 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # Veritabanı bağlantısı
-DB_PATH = 'cargo_database.db'
+DB_PATH = "cargo_database.db"
+
 
 def get_db_connection():
     """SQLite veritabanı bağlantısı oluşturur"""
     return sqlite3.connect(DB_PATH)
+
 
 def get_table_info():
     """Veritabanı istatistiklerini döndürür"""
@@ -60,26 +65,29 @@ def get_table_info():
 
     # Users sayısı
     cursor.execute("SELECT COUNT(*) FROM users")
-    stats['total_users'] = cursor.fetchone()[0]
+    stats["total_users"] = cursor.fetchone()[0]
 
     # Cargos sayısı
     cursor.execute("SELECT COUNT(*) FROM cargos")
-    stats['total_cargos'] = cursor.fetchone()[0]
+    stats["total_cargos"] = cursor.fetchone()[0]
 
     # Tracking history sayısı
     cursor.execute("SELECT COUNT(*) FROM tracking_history")
-    stats['total_history'] = cursor.fetchone()[0]
+    stats["total_history"] = cursor.fetchone()[0]
 
     # Durum dağılımı
     cursor.execute("SELECT status, COUNT(*) FROM cargos GROUP BY status")
-    stats['status_distribution'] = dict(cursor.fetchall())
+    stats["status_distribution"] = dict(cursor.fetchall())
 
     # Carrier dağılımı
-    cursor.execute("SELECT carrier, COUNT(*) FROM cargos WHERE carrier IS NOT NULL GROUP BY carrier")
-    stats['carrier_distribution'] = dict(cursor.fetchall())
+    cursor.execute(
+        "SELECT carrier, COUNT(*) FROM cargos WHERE carrier IS NOT NULL GROUP BY carrier"
+    )
+    stats["carrier_distribution"] = dict(cursor.fetchall())
 
     conn.close()
     return stats
+
 
 def get_users_data(search_term=None, limit=50):
     """Kullanıcı verilerini döndürür"""
@@ -95,11 +103,13 @@ def get_users_data(search_term=None, limit=50):
 
     if search_term:
         query += " WHERE u.name LIKE ? OR u.email LIKE ? OR u.id LIKE ?"
-        params = (f'%{search_term}%', f'%{search_term}%', f'%{search_term}%')
+        params = (f"%{search_term}%", f"%{search_term}%", f"%{search_term}%")
     else:
         params = ()
 
-    query += " GROUP BY u.id, u.name, u.email, u.phone, u.member_since ORDER BY u.id LIMIT ?"
+    query += (
+        " GROUP BY u.id, u.name, u.email, u.phone, u.member_since ORDER BY u.id LIMIT ?"
+    )
     params = params + (limit,)
 
     cursor.execute(query, params)
@@ -108,6 +118,7 @@ def get_users_data(search_term=None, limit=50):
 
     conn.close()
     return columns, data
+
 
 def get_cargos_data(user_filter=None, status_filter=None, limit=100):
     """Kargo verilerini döndürür"""
@@ -146,6 +157,7 @@ def get_cargos_data(user_filter=None, status_filter=None, limit=100):
     conn.close()
     return columns, data
 
+
 def get_tracking_history(tracking_number=None, limit=200):
     """Tracking history verilerini döndürür"""
     conn = get_db_connection()
@@ -173,7 +185,8 @@ def get_tracking_history(tracking_number=None, limit=200):
     conn.close()
     return columns, data
 
-def export_data(table_name, format_type='json'):
+
+def export_data(table_name, format_type="json"):
     """Tablo verilerini dışa aktarır"""
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -184,24 +197,28 @@ def export_data(table_name, format_type='json'):
 
     conn.close()
 
-    if format_type == 'json':
+    if format_type == "json":
         result = []
         for row in data:
             result.append(dict(zip(columns, row)))
         return json.dumps(result, indent=2, ensure_ascii=False, default=str)
-    elif format_type == 'csv':
+    elif format_type == "csv":
         df = pd.DataFrame(data, columns=columns)
         return df.to_csv(index=False)
+
 
 # Ana uygulama
 def main():
     # Başlık
-    st.markdown("""
+    st.markdown(
+        """
     <div class="main-header">
         <h1>🗃️ FastShip Database Viewer</h1>
         <p>SQLite veritabanı içeriğini görüntüleme ve yönetme aracı</p>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
     # Sidebar - Navigasyon
     with st.sidebar:
@@ -210,8 +227,14 @@ def main():
 
         page = st.selectbox(
             "📋 Sayfa Seçin",
-            ["Dashboard", "Kullanıcılar", "Kargolar", "Tracking History", "Dışa Aktarma"],
-            key="page_selector"
+            [
+                "Dashboard",
+                "Kullanıcılar",
+                "Kargolar",
+                "Tracking History",
+                "Dışa Aktarma",
+            ],
+            key="page_selector",
         )
 
         st.markdown("---")
@@ -227,14 +250,32 @@ def main():
         history_limit = 200
 
         if page == "Kullanıcılar":
-            search_term = st.text_input("Kullanıcı ara...", placeholder="İsim, email veya ID")
+            search_term = st.text_input(
+                "Kullanıcı ara...", placeholder="İsim, email veya ID"
+            )
             user_limit = st.slider("Gösterilecek kayıt sayısı", 10, 200, 50)
         elif page == "Kargolar":
-            user_filter = st.selectbox("Kullanıcı filtresi", ["Tümü"] + [f"user{i}" for i in range(100, 1000, 100)])
-            status_filter = st.selectbox("Durum filtresi", ["Tümü", "Hazırlanıyor", "Yola çıktı", "Yolda", "Dağıtımda", "Teslim edildi", "İade İşlemi"])
+            user_filter = st.selectbox(
+                "Kullanıcı filtresi",
+                ["Tümü"] + [f"user{i}" for i in range(100, 1000, 100)],
+            )
+            status_filter = st.selectbox(
+                "Durum filtresi",
+                [
+                    "Tümü",
+                    "Hazırlanıyor",
+                    "Yola çıktı",
+                    "Yolda",
+                    "Dağıtımda",
+                    "Teslim edildi",
+                    "İade İşlemi",
+                ],
+            )
             cargo_limit = st.slider("Gösterilecek kayıt sayısı", 10, 500, 100)
         elif page == "Tracking History":
-            tracking_filter = st.text_input("Takip numarası filtresi", placeholder="TR123456789")
+            tracking_filter = st.text_input(
+                "Takip numarası filtresi", placeholder="TR123456789"
+            )
             history_limit = st.slider("Gösterilecek kayıt sayısı", 10, 1000, 200)
 
     # Ana içerik
@@ -247,30 +288,28 @@ def main():
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            st.metric("Toplam Kullanıcı", stats['total_users'])
+            st.metric("Toplam Kullanıcı", stats["total_users"])
 
         with col2:
-            st.metric("Toplam Kargo", stats['total_cargos'])
+            st.metric("Toplam Kargo", stats["total_cargos"])
 
         with col3:
-            st.metric("Toplam Hareket", stats['total_history'])
+            st.metric("Toplam Hareket", stats["total_history"])
 
         # Durum dağılımı
         st.markdown("### 📊 Kargo Durum Dağılımı")
         status_df = pd.DataFrame(
-            list(stats['status_distribution'].items()),
-            columns=['Durum', 'Adet']
+            list(stats["status_distribution"].items()), columns=["Durum", "Adet"]
         )
-        st.bar_chart(status_df.set_index('Durum'))
+        st.bar_chart(status_df.set_index("Durum"))
 
         # Carrier dağılımı
         st.markdown("### 🏢 Kargo Firması Dağılımı")
-        if stats['carrier_distribution']:
+        if stats["carrier_distribution"]:
             carrier_df = pd.DataFrame(
-                list(stats['carrier_distribution'].items()),
-                columns=['Firma', 'Adet']
+                list(stats["carrier_distribution"].items()), columns=["Firma", "Adet"]
             )
-            st.bar_chart(carrier_df.set_index('Firma'))
+            st.bar_chart(carrier_df.set_index("Firma"))
         else:
             st.info("Carrier bilgisi bulunamadı")
 
@@ -320,8 +359,8 @@ def main():
 
         # Veri çekme
         columns, data = get_users_data(
-            search_term=search_term if 'search_term' in locals() else None,
-            limit=user_limit if 'user_limit' in locals() else 50
+            search_term=search_term if "search_term" in locals() else None,
+            limit=user_limit if "user_limit" in locals() else 50,
         )
 
         if data:
@@ -334,8 +373,7 @@ def main():
             # Detay görünümü
             st.markdown("### 👀 Detaylı Görüntüleme")
             selected_user = st.selectbox(
-                "Kullanıcı seçin",
-                [f"{row[0]} - {row[1]}" for row in data]
+                "Kullanıcı seçin", [f"{row[0]} - {row[1]}" for row in data]
             )
 
             if selected_user:
@@ -345,15 +383,21 @@ def main():
                 # Kullanıcının kargolarını göster
                 conn = get_db_connection()
                 cursor = conn.cursor()
-                cursor.execute("""
+                cursor.execute(
+                    """
                     SELECT tracking_number, status, description, last_update
                     FROM cargos WHERE user_id = ?
-                """, (user_id,))
+                """,
+                    (user_id,),
+                )
                 user_cargos = cursor.fetchall()
                 conn.close()
 
                 if user_cargos:
-                    cargo_df = pd.DataFrame(user_cargos, columns=['Takip No', 'Durum', 'Ürün', 'Son Güncelleme'])
+                    cargo_df = pd.DataFrame(
+                        user_cargos,
+                        columns=["Takip No", "Durum", "Ürün", "Son Güncelleme"],
+                    )
                     st.table(cargo_df)
                 else:
                     st.info("Bu kullanıcının kargosu bulunmuyor")
@@ -371,7 +415,7 @@ def main():
         columns, data = get_cargos_data(
             user_filter=user_filter_val,
             status_filter=status_filter_val,
-            limit=cargo_limit if 'cargo_limit' in locals() else 100
+            limit=cargo_limit if "cargo_limit" in locals() else 100,
         )
 
         if data:
@@ -384,11 +428,14 @@ def main():
             # Özet istatistikler
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.metric("Farklı Kullanıcı", len(df['user_id'].unique()))
+                st.metric("Farklı Kullanıcı", len(df["user_id"].unique()))
             with col2:
-                st.metric("Aktif Kargo", len(df[df['status'].isin(['Yolda', 'Dağıtımda', 'Yola çıktı'])]))
+                st.metric(
+                    "Aktif Kargo",
+                    len(df[df["status"].isin(["Yolda", "Dağıtımda", "Yola çıktı"])]),
+                )
             with col3:
-                st.metric("Teslim Edildi", len(df[df['status'] == 'Teslim edildi']))
+                st.metric("Teslim Edildi", len(df[df["status"] == "Teslim edildi"]))
         else:
             st.warning("Kargo bulunamadı")
 
@@ -397,8 +444,12 @@ def main():
 
         # Veri çekme
         columns, data = get_tracking_history(
-            tracking_number=tracking_filter if 'tracking_filter' in locals() and tracking_filter else None,
-            limit=history_limit if 'history_limit' in locals() else 200
+            tracking_number=(
+                tracking_filter
+                if "tracking_filter" in locals() and tracking_filter
+                else None
+            ),
+            limit=history_limit if "history_limit" in locals() else 200,
         )
 
         if data:
@@ -426,14 +477,10 @@ def main():
         with col1:
             st.markdown("### 📊 Tablo Seçin")
             table_name = st.selectbox(
-                "Dışa aktarılacak tablo",
-                ["users", "cargos", "tracking_history"]
+                "Dışa aktarılacak tablo", ["users", "cargos", "tracking_history"]
             )
 
-            format_type = st.selectbox(
-                "Format",
-                ["json", "csv"]
-            )
+            format_type = st.selectbox("Format", ["json", "csv"])
 
         with col2:
             st.markdown("### 💾 Dışa Aktarma")
@@ -447,16 +494,20 @@ def main():
 
                     # Dosya indirme
                     file_name = f"fastship_{table_name}.{format_type}"
-                    mime_type = "application/json" if format_type == "json" else "text/csv"
+                    mime_type = (
+                        "application/json" if format_type == "json" else "text/csv"
+                    )
 
                     st.download_button(
                         label=f"📥 {file_name} İndir",
                         data=data,
                         file_name=file_name,
-                        mime=mime_type
+                        mime=mime_type,
                     )
 
-                    st.success(f"✅ {table_name} tablosu {format_type.upper()} formatında hazırlandı!")
+                    st.success(
+                        f"✅ {table_name} tablosu {format_type.upper()} formatında hazırlandı!"
+                    )
 
                 except Exception as e:
                     st.error(f"❌ Dışa aktarma hatası: {e}")
@@ -464,6 +515,7 @@ def main():
     # Footer
     st.markdown("---")
     st.markdown("*FastShip Database Viewer - Geliştirme Aracı*")
+
 
 if __name__ == "__main__":
     main()
