@@ -1,13 +1,13 @@
-# 🚚 FastShip Kargo Takip Sistemi
+# 🚚 CargoHub - AI Destekli Kargo Takip Sistemi
 
-Modern, AI destekli kargo takip sistemi. Gemma-2B-IT modeli ile akıllı müşteri hizmetleri asistanı.
+Modern, yapay zeka destekli kargo takip sistemi. Google Gemma-2B-IT modeli ile akıllı müşteri hizmetleri asistanı.
 
 ## ✨ Özellikler
 
 ### 🎯 Ana Özellikler
 
 - **🔐 Güvenli Kullanıcı Girişi** - Kişisel hesap sistemi
-- **🤖 AI Müşteri Hizmetleri** - Gemma AI ile akıllı yanıtlar
+- **🤖 AI Müşteri Hizmetleri** - Gemma-2B-IT ile akıllı Türkçe yanıtlar
 - **📦 Detaylı Kargo Takibi** - Gerçek zamanlı durum güncellemeleri
 - **🔄 İade & İptal İşlemleri** - AI ile kolay iade ve iptal
 - **📊 İstatistik Dashboard** - Kargo analizi ve raporlar
@@ -29,15 +29,25 @@ Modern, AI destekli kargo takip sistemi. Gemma-2B-IT modeli ile akıllı müşte
 ### 1. Gereksinimler
 
 ```bash
-# Ana ortam
+# Ana ortam oluşturma
 conda create -n rapids-25.08 python=3.12
 conda activate rapids-25.08
 
-# Gerekli paketler
-pip install streamlit transformers huggingface_hub faker
+# Gerekli paketleri yükleme
+pip install -r requirements.txt
 ```
 
-### 2. Veritabanı Kurulumu
+### 2. HuggingFace Token Ayarlama
+
+```bash
+# Terminal/Command Prompt
+export HF_TOKEN='your_huggingface_token_here'
+
+# Veya Python ile kontrol
+python -c "from huggingface_hub import HfFolder; print('Token:', HfFolder.get_token())"
+```
+
+### 3. Veritabanı Kurulumu
 
 ```bash
 # SQLite veritabanını oluştur ve örnek verilerle doldur
@@ -45,30 +55,21 @@ python setup_database.py
 ```
 
 Bu komut:
+
 - Rastgele 20 kullanıcı ve 57 kargo ile örnek veri üretir
 - SQLite veritabanını oluşturur (`cargo_database.db`)
 - Verileri aktarır
 
-### 3. HuggingFace Token Ayarlama
-
-```bash
-# Terminal/Command Prompt
-export HF_TOKEN='your_huggingface_token_here'
-
-# Veya .env dosyası oluşturun
-echo "HF_TOKEN=your_token" > .env
-```
-
 ### 4. Uygulamayı Çalıştırma
 
-#### Ana Uygulama
+#### Ana Uygulama (cargo_app.py)
 
-##### VS Code Görevi ile
+##### Ana Uygulama için VS Code Görevi
 
 1. `Ctrl+Shift+P` → "Tasks: Run Task"
 2. "Run Streamlit App" seçin
 
-##### Manuel Çalıştırma
+##### Ana Uygulama için Manuel Çalıştırma
 
 ```bash
 conda activate rapids-25.08
@@ -76,14 +77,14 @@ cd /path/to/project
 streamlit run cargo_app.py
 ```
 
-#### Veritabanı Görüntüleyici
+#### Veritabanı Görüntüleyici (db_viewer.py)
 
-##### VS Code Görevi ile
+##### Veritabanı Görüntüleyici için VS Code Görevi
 
 1. `Ctrl+Shift+P` → "Tasks: Run Task"
 2. "Run Database Viewer" seçin
 
-##### Manuel Çalıştırma
+##### Veritabanı Görüntüleyici için Manuel Çalıştırma
 
 ```bash
 conda activate rapids-25.08
@@ -91,19 +92,26 @@ cd /path/to/project
 streamlit run db_viewer.py
 ```
 
-### 5. Tarayıcıda Erişim
+### 5. Testleri Çalıştırma
 
-- **Local URL:** <http://localhost:8501>
-- **Network URL:** <http://10.209.149.74:8501>
+```bash
+# Tüm testleri çalıştır
+pytest tests/ -v
+
+# Coverage ile test çalıştır
+pytest tests/ --cov=. --cov-report=html
+```
 
 ## 👥 Demo Kullanıcıları
 
 Veritabanında rastgele üretilmiş 20 demo kullanıcı bulunmaktadır. `setup_database.py` çalıştırılarak yeni veriler üretilebilir.
 
 **Örnek Kullanıcı ID'leri:**
+
 - `user100` - `user999` arası (örnek: user123, user456, user789, user999)
 
 Her kullanıcı için:
+
 - Rastgele isim, email, telefon
 - 1-5 arası rastgele kargo
 - Farklı durumlar (Hazırlanıyor, Yolda, Teslim edildi, İade İşlemi)
@@ -171,21 +179,27 @@ Veritabanı yönetim ve görüntüleme uygulaması (`db_viewer.py`):
 ### 🗂️ Proje Yapısı
 
 ```
-FastShip-Kargo/
-├── cargo_app.py          # Ana Streamlit UI uygulaması
-├── cargo_chat.py         # Chat bot ve veri erişim modülü
-├── db_viewer.py          # Veritabanı görüntüleme ve yönetim uygulaması
-├── setup_database.py     # SQLite veritabanı kurulum scripti
-├── cargo_database.db     # SQLite veritabanı dosyası
-├── cargo_data.json       # Örnek veri dosyası (yedek)
-├── .vscode/
-│   └── tasks.json        # VS Code görev tanımları
-└── README.md            # Bu dosya
+CargoHub/
+├── cargo_app.py              # Ana Streamlit UI uygulaması
+├── cargo_chat.py             # AI chatbot ve veri erişim modülü
+├── db_viewer.py              # Veritabanı görüntüleme uygulaması
+├── setup_database.py         # SQLite veritabanı kurulum scripti
+├── requirements.txt           # Python bağımlılıkları
+├── cargo_database.db          # SQLite veritabanı dosyası
+├── cargo_data.json            # Örnek veri dosyası (yedek)
+├── tests/                     # Test dosyaları
+│   ├── test_cargo_chat.py     # Chat modülü testleri
+│   └── test_setup_database.py # Veritabanı testleri
+├── .github/
+│   └── workflows/
+│       └── ci.yml            # GitHub Actions CI/CD pipeline
+└── README.md                 # Bu dosya
 ```
 
 ### 🗃️ Veritabanı Şeması
 
 #### Users Tablosu
+
 ```sql
 CREATE TABLE users (
     id TEXT PRIMARY KEY,
@@ -197,6 +211,7 @@ CREATE TABLE users (
 ```
 
 #### Cargos Tablosu
+
 ```sql
 CREATE TABLE cargos (
     tracking_number TEXT PRIMARY KEY,
@@ -216,6 +231,7 @@ CREATE TABLE cargos (
 ```
 
 #### Tracking History Tablosu
+
 ```sql
 CREATE TABLE tracking_history (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -233,6 +249,7 @@ CREATE TABLE tracking_history (
 - **Dil:** Türkçe
 - **Özellik:** Bağlam farkında yanıtlar
 - **Token Limit:** 250 token
+- **Gereksinim:** HuggingFace token
 
 ### 🎨 UI/UX
 
@@ -241,6 +258,14 @@ CREATE TABLE tracking_history (
 - **Renkler:** Mavi gradyan teması
 - **İkonlar:** Emoji ve SVG
 - **Responsive:** Mobil uyumlu
+
+### 🧪 Test Altyapısı
+
+- **Framework:** pytest
+- **Coverage:** pytest-cov
+- **Mocking:** unittest.mock
+- **CI/CD:** GitHub Actions
+- **Test Dosyaları:** `tests/test_*.py`
 
 ## 🔧 Gelişmiş Özellikler
 
@@ -267,17 +292,18 @@ CREATE TABLE tracking_history (
 ### 🔒 Güvenlik
 
 - Kullanıcı bazlı veri izolasyonu
-- Güvenli token yönetimi
+- Güvenli token yönetimi (HF_TOKEN)
 - Session timeout
 
-## 📞 İletişim
+### 🚀 CI/CD Pipeline
 
-### FastShip Kargo
+GitHub Actions ile otomatik test ve kalite kontrolü:
 
-- 📧 [destek@fastship.com.tr](mailto:destek@fastship.com.tr)
-- 📱 0850 123 45 67
-- 🕒 08:00 - 24:00 (7/24)
-- 📍 İstanbul, Türkiye
+- **Test Job:** pytest ile birim testleri
+- **Lint Job:** flake8, black, isort ile kod kalitesi
+- **Build Job:** Uygulama build kontrolü
+- **Coverage:** Kod coverage raporu
+- **Secrets:** HF_TOKEN güvenli saklama
 
 ## 📝 Lisans
 
@@ -293,4 +319,4 @@ Bu proje eğitim amaçlı geliştirilmiştir.
 
 ---
 
-**🚚 FastShip ile kargolarınız güvende!**
+**🚚 CargoHub ile kargolarınız güvende!**
