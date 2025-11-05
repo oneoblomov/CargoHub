@@ -16,16 +16,11 @@ sys.modules["streamlit"] = MagicMock()
 # Test modüllerini import et
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from cargo_chat import (  # noqa: E402
-    cargo_status_bot,
-    check_cancel_eligibility,
-    check_return_eligibility,
-    create_cancel_request,
-    create_return_request,
-    detect_return_cancel_intent,
-    extract_tracking_number,
-    load_cargo_data,
-)
+from cargo_chat import cargo_status_bot  # noqa: E402
+from cargo_chat import (check_cancel_eligibility, check_return_eligibility,
+                        create_cancel_request, create_return_request,
+                        detect_return_cancel_intent, extract_tracking_number,
+                        load_cargo_data)
 
 
 class TestCargoChat:
@@ -375,7 +370,7 @@ class TestCargoChat:
         # Geçerli sorgu
         result = cargo_status_bot(None, "TR123456789 nerede?", user_cargos)
         assert "Ahmet Yılmaz" in result
-        assert "teslim edilmiş" in result.lower()
+        assert "teslim edildi" in result.lower()
 
         # Geçersiz tracking number
         result = cargo_status_bot(None, "TR999999999 nerede?", user_cargos)

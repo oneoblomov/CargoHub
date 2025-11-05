@@ -13,11 +13,8 @@ sys.modules["faker"] = MagicMock()
 # Test modüllerini import et
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from setup_database import (  # noqa: E402
-    create_database,
-    generate_sample_data,
-    migrate_json_to_sqlite,
-)
+from setup_database import create_database  # noqa: E402
+from setup_database import generate_sample_data, migrate_json_to_sqlite
 
 
 class TestSetupDatabase:
