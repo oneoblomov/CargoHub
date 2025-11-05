@@ -32,7 +32,8 @@ jobs:
 
             - name: Run tests
               run: |
-                  pytest tests/ -v --tb=short --cov=. --cov-report=xml
+                  export PYTHONPATH=$PWD:$PYTHONPATH
+                  pytest
 
             - name: Upload coverage reports
               uses: codecov/codecov-action@v3

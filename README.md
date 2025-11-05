@@ -95,10 +95,13 @@ streamlit run db_viewer.py
 ### 5. Testleri Çalıştırma
 
 ```bash
-# Tüm testleri çalıştır
-pytest tests/ -v
+# Tüm testleri çalıştır (pytest.ini konfigürasyonu ile)
+pytest
 
-# Coverage ile test çalıştır
+# Manuel olarak test çalıştır
+pytest tests/ -v --tb=short --cov=. --cov-report=xml
+
+# Coverage ile HTML rapor oluştur
 pytest tests/ --cov=. --cov-report=html
 ```
 
@@ -185,9 +188,11 @@ CargoHub/
 ├── db_viewer.py              # Veritabanı görüntüleme uygulaması
 ├── setup_database.py         # SQLite veritabanı kurulum scripti
 ├── requirements.txt           # Python bağımlılıkları
+├── pytest.ini                # Test konfigürasyonu
 ├── cargo_database.db          # SQLite veritabanı dosyası
 ├── cargo_data.json            # Örnek veri dosyası (yedek)
 ├── tests/                     # Test dosyaları
+│   ├── conftest.py            # Test fixtures ve mock'lar
 │   ├── test_cargo_chat.py     # Chat modülü testleri
 │   └── test_setup_database.py # Veritabanı testleri
 ├── .github/
@@ -262,8 +267,9 @@ CREATE TABLE tracking_history (
 ### 🧪 Test Altyapısı
 
 - **Framework:** pytest
+- **Konfigürasyon:** pytest.ini
 - **Coverage:** pytest-cov
-- **Mocking:** unittest.mock
+- **Mocking:** unittest.mock, conftest.py
 - **CI/CD:** GitHub Actions
 - **Test Dosyaları:** `tests/test_*.py`
 
@@ -299,11 +305,12 @@ CREATE TABLE tracking_history (
 
 GitHub Actions ile otomatik test ve kalite kontrolü:
 
-- **Test Job:** pytest ile birim testleri
+- **Test Job:** pytest (pytest.ini konfigürasyonu ile)
 - **Lint Job:** flake8, black, isort ile kod kalitesi
 - **Build Job:** Uygulama build kontrolü
-- **Coverage:** Kod coverage raporu
+- **Coverage:** Kod coverage raporu (XML + terminal)
 - **Secrets:** HF_TOKEN güvenli saklama
+- **Python Path:** Otomatik ayarlanır
 
 ## 📝 Lisans
 
