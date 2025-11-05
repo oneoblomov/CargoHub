@@ -493,7 +493,7 @@ def cargo_status_bot(pipe, prompt, user_cargos):
         status_messages = {
             "Teslim edildi": [
                 f"Merhaba {user_cargos['name']}, {tracking_number} numaralı kargonuz başarıyla teslim edilmiş! 🎉 Teslim tarihi: {cargo_info['last_update']}. Umarım memnun kaldınız, başka bir konuda yardıma ihtiyacınız var mı?",
-                f"Harika haber {user_cargos['name']}! {tracking_number} kargonuz teslim edildi. {cargo_info['last_update']} tarihinde ulaştı. FastShip olarak hizmetinizden memnuniyet duyuyoruz. Başka sorularınız var mı?",
+                f"Harika haber {user_cargos['name']}! {tracking_number} kargonuz teslim edildi. {cargo_info['last_update']} tarihinde ulaştı. CargoHub olarak hizmetinizden memnuniyet duyuyoruz. Başka sorularınız var mı?",
             ],
             "Yolda": [
                 f"Merhaba {user_cargos['name']}, {tracking_number} kargonuz şu anda yolda ve {cargo_info['location']} civarında ilerliyor. Tahmini teslimat: {cargo_info['estimated_delivery']}. Yolculuk nasıl gidiyor merak ediyorum, başka detay ister misiniz?",
@@ -550,17 +550,17 @@ def cargo_status_bot(pipe, prompt, user_cargos):
     - Tahmini Teslimat: {cargo_info['estimated_delivery']}
     - Ürün Açıklaması: {cargo_info.get('description', 'Belirtilmemiş')}
     - Ağırlık: {cargo_info.get('weight', 'Belirtilmemiş')}
-    - Kargo Firması: {cargo_info.get('carrier', 'FastShip')}
+    - Kargo Firması: {cargo_info.get('carrier', 'CargoHub')}
     {chat_history_text}
     """
 
-    system_prompt = f"""Sen {user_cargos['name']} kullanıcısının FastShip kargo şirketi müşteri hizmetleri asistanısın.
+    system_prompt = f"""Sen {user_cargos['name']} kullanıcısının CargoHub kargo şirketi müşteri hizmetleri asistanısın.
 
 Görevlerin:
 - Kargo durumunu Türkçe olarak nazik, profesyonel ve yardımcı bir şekilde açıkla
 - Kullanıcıyı adıyla selamla ve kişisel bir tonda konuş
 - Detaylı bilgi ver ve gerekirse ek yardım öner
-- FastShip'in kaliteli hizmet anlayışını vurgula
+- CargoHub'in kaliteli hizmet anlayışını vurgula
 - İade veya iptal talepleri için kullanıcıyı yönlendir
 - Kullanıcının sorularına doğrudan cevap ver (örneğin "ne zaman teslim edilecek?" sorusuna tahmini tarihi söyle)
 - Sohbeti doğal tut, kısa ve samimi yanıtlar ver

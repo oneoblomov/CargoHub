@@ -13,7 +13,7 @@ from cargo_chat import (
 
 # Sayfa konfigürasyonu - Modern görünüm
 st.set_page_config(
-    page_title="🚚 FastShip Kargo Takip",
+    page_title="🚚 CargoHub Kargo Takip",
     page_icon="�",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -186,15 +186,15 @@ def main():
     # Sidebar - Şirket bilgileri ve navigation
     with st.sidebar:
         st.image(
-            "https://via.placeholder.com/200x80/2563eb/white?text=FastShip", width=200
+            "https://via.placeholder.com/200x80/2563eb/white?text=CargoHub", width=200
         )
-        st.markdown("### 🚚 FastShip Kargo")
+        st.markdown("### 🚚 CargoHub Kargo")
         st.markdown("Türkiye'nin en güvenilir kargo şirketi")
 
         st.markdown("---")
         # İletişim bilgileri
         st.markdown("### 📞 İletişim")
-        st.markdown("📧 [destek@fastship.com.tr](mailto:destek@fastship.com.tr) ")
+        st.markdown("📧 [destek@CargoHub.com.tr](mailto:destek@CargoHub.com.tr) ")
         st.markdown("📱 0850 123 45 67")
         st.markdown("🕒 08:00 - 24:00")
 
@@ -202,7 +202,7 @@ def main():
     st.markdown(
         """
     <div class="main-header">
-        <h1>🚚 FastShip Kargo Takip Sistemi</h1>
+        <h1>🚚 CargoHub Kargo Takip Sistemi</h1>
         <p>Gemma AI ile akıllı kargo durumu sorgulama</p>
     </div>
     """,
@@ -399,7 +399,7 @@ def main():
                                     f"🚚 **Tahmini Teslimat:** {cargo['estimated_delivery']}"
                                 )
                                 st.write(
-                                    f"🏢 **Kargo Firması:** {cargo.get('carrier', 'FastShip')}"
+                                    f"🏢 **Kargo Firması:** {cargo.get('carrier', 'CargoHub')}"
                                 )
 
                             # Tracking history
@@ -613,7 +613,7 @@ def main():
 
                 with col_export:
                     if st.button("📄 Sohbeti Dışa Aktar", use_container_width=True):
-                        chat_text = "FastShip AI Asistan Sohbet Geçmişi\n\n"
+                        chat_text = "CargoHub AI Asistan Sohbet Geçmişi\n\n"
                         for msg in st.session_state.chat_history:
                             role = "Siz" if msg["role"] == "user" else "AI Asistan"
                             chat_text += f"{role}: {msg['content']}\n\n"
@@ -621,7 +621,7 @@ def main():
                         st.download_button(
                             label="📥 İndir",
                             data=chat_text,
-                            file_name="fastship_chat_history.txt",
+                            file_name="CargoHub_chat_history.txt",
                             mime="text/plain",
                         )
 
@@ -680,7 +680,7 @@ def main():
 
                 carrier_counts = {}
                 for cargo in user_cargos.values():
-                    carrier = cargo.get("carrier", "FastShip")
+                    carrier = cargo.get("carrier", "CargoHub")
                     carrier_counts[carrier] = carrier_counts.get(carrier, 0) + 1
 
                 for carrier, count in carrier_counts.items():
@@ -730,7 +730,7 @@ def main():
                 st.markdown("### 📞 İletişim Bilgileri")
                 st.info(
                     """
-                **📧 E-posta:** destek@fastship.com.tr
+                **📧 E-posta:** destek@CargoHub.com.tr
                 **📱 Telefon:** 0850 123 45 67
                 **🕒 Çalışma Saatleri:** 08:00 - 24:00 (7/24)
                 **📍 Adres:** İstanbul, Türkiye
@@ -740,7 +740,7 @@ def main():
                 st.markdown("### 🏢 Hakkımızda")
                 st.write(
                     """
-                FastShip, Türkiye'nin önde gelen kargo ve lojistik şirketidir.
+                CargoHub, Türkiye'nin önde gelen kargo ve lojistik şirketidir.
                 10 yılı aşkın tecrübemizle güvenli, hızlı ve güvenilir kargo hizmetleri sunuyoruz.
                 """
                 )

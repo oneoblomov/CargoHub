@@ -6,7 +6,7 @@ import streamlit as st
 
 # Sayfa konfigürasyonu
 st.set_page_config(
-    page_title="📊 FastShip Database Viewer",
+    page_title="📊 CargoHub Database Viewer",
     page_icon="🗃️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -213,7 +213,7 @@ def main():
     st.markdown(
         """
     <div class="main-header">
-        <h1>🗃️ FastShip Database Viewer</h1>
+        <h1>🗃️ CargoHub Database Viewer</h1>
         <p>SQLite veritabanı içeriğini görüntüleme ve yönetme aracı</p>
     </div>
     """,
@@ -493,7 +493,7 @@ def main():
                         return
 
                     # Dosya indirme
-                    file_name = f"fastship_{table_name}.{format_type}"
+                    file_name = f"CargoHub_{table_name}.{format_type}"
                     mime_type = (
                         "application/json" if format_type == "json" else "text/csv"
                     )
@@ -514,7 +514,7 @@ def main():
 
     # Footer
     st.markdown("---")
-    st.markdown("*FastShip Database Viewer - Geliştirme Aracı*")
+    st.markdown("*CargoHub Database Viewer - Geliştirme Aracı*")
 
 
 if __name__ == "__main__":
