@@ -7,18 +7,23 @@ from unittest.mock import patch, MagicMock, mock_open
 import sys
 
 # Mock external dependencies before importing our modules
-sys.modules['transformers'] = MagicMock()
-sys.modules['transformers.pipeline'] = MagicMock()
-sys.modules['huggingface_hub'] = MagicMock()
-sys.modules['huggingface_hub.login'] = MagicMock()
-sys.modules['streamlit'] = MagicMock()
+sys.modules["transformers"] = MagicMock()
+sys.modules["transformers.pipeline"] = MagicMock()
+sys.modules["huggingface_hub"] = MagicMock()
+sys.modules["huggingface_hub.login"] = MagicMock()
+sys.modules["streamlit"] = MagicMock()
 
 # Now import our modules
 from cargo_chat import (
-    load_cargo_data, save_cargo_data, extract_tracking_number,
-    detect_return_cancel_intent, check_return_eligibility,
-    check_cancel_eligibility, create_return_request, create_cancel_request,
-    cargo_status_bot
+    load_cargo_data,
+    save_cargo_data,
+    extract_tracking_number,
+    detect_return_cancel_intent,
+    check_return_eligibility,
+    check_cancel_eligibility,
+    create_return_request,
+    create_cancel_request,
+    cargo_status_bot,
 )
 
 
@@ -49,14 +54,14 @@ class TestCargoChat:
                             {
                                 "date": "2024-01-10 09:00",
                                 "status": "Sipariş alındı",
-                                "location": "İstanbul Depo"
+                                "location": "İstanbul Depo",
                             },
                             {
                                 "date": "2024-01-15 14:30",
                                 "status": "Teslim edildi",
-                                "location": "İstanbul, Türkiye"
-                            }
-                        ]
+                                "location": "İstanbul, Türkiye",
+                            },
+                        ],
                     },
                     "TR987654321": {
                         "status": "Hazırlanıyor",
@@ -72,11 +77,11 @@ class TestCargoChat:
                             {
                                 "date": "2024-01-10 09:00",
                                 "status": "Sipariş alındı",
-                                "location": "İstanbul Depo"
+                                "location": "İstanbul Depo",
                             }
-                        ]
-                    }
-                }
+                        ],
+                    },
+                },
             }
         }
 
@@ -88,7 +93,8 @@ class TestCargoChat:
 
         # Tabloları oluştur
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute(
+            """
             CREATE TABLE users (
                 id TEXT PRIMARY KEY,
                 name TEXT NOT NULL,
@@ -96,9 +102,11 @@ class TestCargoChat:
                 phone TEXT,
                 member_since DATE
             )
-        ''')
+        """
+        )
 
-        cursor.execute('''
+        cursor.execute(
+            """
             CREATE TABLE cargos (
                 tracking_number TEXT PRIMARY KEY,
                 user_id TEXT NOT NULL,
@@ -114,9 +122,11 @@ class TestCargoChat:
                 return_reason TEXT,
                 FOREIGN KEY (user_id) REFERENCES users (id)
             )
-        ''')
+        """
+        )
 
-        cursor.execute('''
+        cursor.execute(
+            """
             CREATE TABLE tracking_history (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 tracking_number TEXT NOT NULL,
@@ -125,27 +135,50 @@ class TestCargoChat:
                 location TEXT,
                 FOREIGN KEY (tracking_number) REFERENCES cargos (tracking_number)
             )
-        ''')
+        """
+        )
 
         # Örnek veri ekle
-        cursor.execute('INSERT INTO users VALUES (?, ?, ?, ?, ?)',
-                      ('user123', 'Ahmet Yılmaz', 'ahmet@example.com', '555-0123', '2023-01-01'))
+        cursor.execute(
+            "INSERT INTO users VALUES (?, ?, ?, ?, ?)",
+            ("user123", "Ahmet Yılmaz", "ahmet@example.com", "555-0123", "2023-01-01"),
+        )
 
-        cursor.execute('''
+        cursor.execute(
+            """
             INSERT INTO cargos VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', ('TR123456789', 'user123', 'Teslim edildi', 'İstanbul, Türkiye',
-              '2024-01-15 14:30', '2024-01-16', 'Laptop', '2.5 kg', '40x30x5 cm',
-              'Aras Kargo', 'Evet - 50000 TL', None))
+        """,
+            (
+                "TR123456789",
+                "user123",
+                "Teslim edildi",
+                "İstanbul, Türkiye",
+                "2024-01-15 14:30",
+                "2024-01-16",
+                "Laptop",
+                "2.5 kg",
+                "40x30x5 cm",
+                "Aras Kargo",
+                "Evet - 50000 TL",
+                None,
+            ),
+        )
 
-        cursor.execute('''
+        cursor.execute(
+            """
             INSERT INTO tracking_history (tracking_number, date, status, location)
             VALUES (?, ?, ?, ?)
-        ''', ('TR123456789', '2024-01-10 09:00', 'Sipariş alındı', 'İstanbul Depo'))
+        """,
+            ("TR123456789", "2024-01-10 09:00", "Sipariş alındı", "İstanbul Depo"),
+        )
 
-        cursor.execute('''
+        cursor.execute(
+            """
             INSERT INTO tracking_history (tracking_number, date, status, location)
             VALUES (?, ?, ?, ?)
-        ''', ('TR123456789', '2024-01-15 14:30', 'Teslim edildi', 'İstanbul, Türkiye'))
+        """,
+            ("TR123456789", "2024-01-15 14:30", "Teslim edildi", "İstanbul, Türkiye"),
+        )
 
         conn.commit()
         conn.close()
@@ -194,7 +227,7 @@ class TestCargoChat:
         # Uygun kargo (teslim edilmiş)
         eligible_cargo = {
             "status": "Teslim edildi",
-            "last_update": (datetime.now().replace(day=15)).strftime("%Y-%m-%d %H:%M")
+            "last_update": (datetime.now().replace(day=15)).strftime("%Y-%m-%d %H:%M"),
         }
         eligible, reason = check_return_eligibility(eligible_cargo)
         assert eligible is True
@@ -203,7 +236,7 @@ class TestCargoChat:
         # Uygun olmayan kargo (henüz yola çıkmamış)
         ineligible_cargo = {
             "status": "Hazırlanıyor",
-            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M")
+            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M"),
         }
         eligible, reason = check_return_eligibility(ineligible_cargo)
         assert eligible is False
@@ -212,7 +245,7 @@ class TestCargoChat:
         # İade işlemi zaten başlatılmış
         return_cargo = {
             "status": "İade İşlemi",
-            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M")
+            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M"),
         }
         eligible, reason = check_return_eligibility(return_cargo)
         assert eligible is False
@@ -223,7 +256,7 @@ class TestCargoChat:
         # Uygun kargo (hazırlanıyor)
         eligible_cargo = {
             "status": "Hazırlanıyor",
-            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M")
+            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M"),
         }
         eligible, reason = check_cancel_eligibility(eligible_cargo)
         assert eligible is True
@@ -232,13 +265,13 @@ class TestCargoChat:
         # Uygun olmayan kargo (yolda)
         ineligible_cargo = {
             "status": "Yolda",
-            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M")
+            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M"),
         }
         eligible, reason = check_cancel_eligibility(ineligible_cargo)
         assert eligible is False
         assert "uygun değildir" in reason.lower()
 
-    @patch('cargo_chat.get_db_connection')
+    @patch("cargo_chat.get_db_connection")
     def test_load_cargo_data(self, mock_get_db, db_setup):
         """Veri yükleme fonksiyonunu test et - simplified test"""
         # Mock veritabanı bağlantısı
@@ -249,17 +282,44 @@ class TestCargoChat:
 
         # Mock veri
         mock_cursor.fetchall.return_value = [
-            ('user123', 'Ahmet Yılmaz', 'ahmet@example.com', '555-0123', '2023-01-01',
-             'TR123456789', 'Teslim edildi', 'İstanbul, Türkiye', '2024-01-15 14:30',
-             '2024-01-16', 'Laptop', '2.5 kg', '40x30x5 cm', 'Aras Kargo', 'Evet', None)
+            (
+                "user123",
+                "Ahmet Yılmaz",
+                "ahmet@example.com",
+                "555-0123",
+                "2023-01-01",
+                "TR123456789",
+                "Teslim edildi",
+                "İstanbul, Türkiye",
+                "2024-01-15 14:30",
+                "2024-01-16",
+                "Laptop",
+                "2.5 kg",
+                "40x30x5 cm",
+                "Aras Kargo",
+                "Evet",
+                None,
+            )
         ]
 
         # Mock description
         mock_cursor.description = [
-            ('id',), ('name',), ('email',), ('phone',), ('member_since',),
-            ('tracking_number',), ('status',), ('location',), ('last_update',),
-            ('estimated_delivery',), ('description',), ('weight',), ('dimensions',),
-            ('carrier',), ('insurance',), ('return_reason',)
+            ("id",),
+            ("name",),
+            ("email",),
+            ("phone",),
+            ("member_since",),
+            ("tracking_number",),
+            ("status",),
+            ("location",),
+            ("last_update",),
+            ("estimated_delivery",),
+            ("description",),
+            ("weight",),
+            ("dimensions",),
+            ("carrier",),
+            ("insurance",),
+            ("return_reason",),
         ]
 
         # Just test that the function can be called without errors
@@ -271,10 +331,10 @@ class TestCargoChat:
             # If there's an issue with caching, we'll skip the detailed assertions
             pytest.skip(f"Cache-related test issue: {e}")
 
-    @patch('cargo_chat.save_cargo_data')
+    @patch("cargo_chat.save_cargo_data")
     def test_create_return_request(self, mock_save, sample_data):
         """İade talebi oluşturmayı test et"""
-        user_cargos = sample_data['user123']
+        user_cargos = sample_data["user123"]
 
         # Başarılı iade talebi
         success, message = create_return_request("TR123456789", user_cargos)
@@ -287,10 +347,10 @@ class TestCargoChat:
         assert success is False
         assert "bulunamadı" in message
 
-    @patch('cargo_chat.save_cargo_data')
+    @patch("cargo_chat.save_cargo_data")
     def test_create_cancel_request(self, mock_save, sample_data):
         """İptal talebi oluşturmayı test et"""
-        user_cargos = sample_data['user123']
+        user_cargos = sample_data["user123"]
 
         # Başarılı iptal talebi
         success, message = create_cancel_request("TR987654321", user_cargos)
@@ -303,13 +363,13 @@ class TestCargoChat:
         assert success is False
         assert "uygun değildir" in message
 
-    @patch('cargo_chat.load_model')
+    @patch("cargo_chat.load_model")
     def test_cargo_status_bot_basic(self, mock_load_model, sample_data):
         """Temel cargo status bot fonksiyonunu test et"""
         # Mock model
         mock_load_model.return_value = None
 
-        user_cargos = sample_data['user123']
+        user_cargos = sample_data["user123"]
 
         # Geçerli sorgu
         result = cargo_status_bot(None, "TR123456789 nerede?", user_cargos)

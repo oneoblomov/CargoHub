@@ -38,21 +38,21 @@ class TestSetupDatabase:
                             {
                                 "date": "2024-01-10 09:00",
                                 "status": "Sipariş alındı",
-                                "location": "İstanbul Depo"
+                                "location": "İstanbul Depo",
                             },
                             {
                                 "date": "2024-01-15 14:30",
                                 "status": "Teslim edildi",
-                                "location": "İstanbul, Türkiye"
-                            }
-                        ]
+                                "location": "İstanbul, Türkiye",
+                            },
+                        ],
                     }
-                }
+                },
             }
         }
 
         json_file = tmp_path / "test_data.json"
-        with open(json_file, 'w', encoding='utf-8') as f:
+        with open(json_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
         return str(json_file)
@@ -60,7 +60,7 @@ class TestSetupDatabase:
     def test_create_database(self):
         """Veritabanı oluşturma fonksiyonunu test et"""
         # Geçici veritabanı dosyası oluştur
-        with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tmp:
             db_path = tmp.name
 
         try:
@@ -72,22 +72,33 @@ class TestSetupDatabase:
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
             tables = [row[0] for row in cursor.fetchall()]
 
-            assert 'users' in tables
-            assert 'cargos' in tables
-            assert 'tracking_history' in tables
+            assert "users" in tables
+            assert "cargos" in tables
+            assert "tracking_history" in tables
 
             # Tablo şemalarını kontrol et
             cursor.execute("PRAGMA table_info(users)")
             users_columns = [row[1] for row in cursor.fetchall()]
-            expected_users_cols = ['id', 'name', 'email', 'phone', 'member_since']
+            expected_users_cols = ["id", "name", "email", "phone", "member_since"]
             for col in expected_users_cols:
                 assert col in users_columns
 
             cursor.execute("PRAGMA table_info(cargos)")
             cargos_columns = [row[1] for row in cursor.fetchall()]
-            expected_cargos_cols = ['tracking_number', 'user_id', 'status', 'location',
-                                  'last_update', 'estimated_delivery', 'description',
-                                  'weight', 'dimensions', 'carrier', 'insurance', 'return_reason']
+            expected_cargos_cols = [
+                "tracking_number",
+                "user_id",
+                "status",
+                "location",
+                "last_update",
+                "estimated_delivery",
+                "description",
+                "weight",
+                "dimensions",
+                "carrier",
+                "insurance",
+                "return_reason",
+            ]
             for col in expected_cargos_cols:
                 assert col in cargos_columns
 
@@ -101,16 +112,18 @@ class TestSetupDatabase:
     def test_migrate_json_to_sqlite_success(self, sample_json_data):
         """JSON'dan SQLite'e başarılı veri aktarımını test et"""
         # Geçici veritabanı dosyası
-        with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tmp:
             db_path = tmp.name
 
         # Geçici olarak veritabanı dosyasını değiştir - monkey patch
         import setup_database
+
         original_connect = setup_database.sqlite3.connect
 
         try:
+
             def mock_connect(db_name):
-                if db_name == 'cargo_database.db':
+                if db_name == "cargo_database.db":
                     return original_connect(db_path)
                 return original_connect(db_name)
 
@@ -182,7 +195,7 @@ class TestSetupDatabase:
             assert json_file.exists()
 
             # JSON içeriğini kontrol et
-            with open(json_file, 'r', encoding='utf-8') as f:
+            with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
             # Veri yapısını kontrol et
