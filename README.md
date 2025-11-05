@@ -1,7 +1,6 @@
 # 🚚 CargoHub - AI Destekli Kargo Takip Sistemi
 
-![CI](https://github.com/oneoblomov/CargoHub/actions/workflows/CI/badge.svg)
-
+[![CI](https://codecov.io/gh/oneoblomov/CargoHub/branch/main/graph/badge.svg)](https://codecov.io/gh/oneoblomov/CargoHub)
 Modern, yapay zeka destekli kargo takip sistemi. Google Gemma-2B-IT modeli ile akıllı müşteri hizmetleri asistanı.
 
 ## ✨ Özellikler
