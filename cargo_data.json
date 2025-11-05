@@ -1,0 +1,2158 @@
+{
+  "user823": {
+    "name": "Dr. Şinasi Gülen",
+    "email": "jtevetoglu@example.net",
+    "phone": "05720026549",
+    "member_since": "2025-06-19",
+    "cargos": {
+      "TR136156818": {
+        "status": "Dağıtımda",
+        "location": "İzmir, Türkiye",
+        "last_update": "2025-10-10 07:11",
+        "estimated_delivery": "2025-10-17",
+        "description": "Consectetur iste.",
+        "weight": "1.6 kg",
+        "dimensions": "40x7x14 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-10 07:11",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-16 12:40",
+            "status": "Paket hazırlandı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-18 05:13",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          },
+          {
+            "date": "2025-10-18 10:11",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 11:24",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          }
+        ]
+      }
+    }
+  },
+  "user135": {
+    "name": "Bayan Paye Korutürk Çorlu",
+    "email": "akar85@example.net",
+    "phone": "(683)334 3706",
+    "member_since": "2025-08-03",
+    "cargos": {
+      "TR118378388": {
+        "status": "Teslim edildi",
+        "location": "Ankara, Türkiye",
+        "last_update": "2025-09-30 20:07",
+        "estimated_delivery": "2025-09-28",
+        "description": "Quae corporis maxime deleniti.",
+        "weight": "3.1 kg",
+        "dimensions": "43x16x12 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-30 20:07",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-06 21:42",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-14 11:22",
+            "status": "Yola çıktı",
+            "location": "İstanbul Dağıtım"
+          },
+          {
+            "date": "2025-10-15 10:27",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 14:52",
+            "status": "Dağıtıma çıktı",
+            "location": "Bursa Şubesi"
+          },
+          {
+            "date": "2025-10-18 15:51",
+            "status": "Teslim edildi",
+            "location": "Ankara, Türkiye"
+          }
+        ]
+      },
+      "TR483319388": {
+        "status": "Hazırlanıyor",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-09-27 16:33",
+        "estimated_delivery": "2025-09-28",
+        "description": "Dolores temporibus repudiandae.",
+        "weight": "0.5 kg",
+        "dimensions": "44x18x20 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Evet - 83000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-27 16:33",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          }
+        ]
+      },
+      "TR162278500": {
+        "status": "Yola çıktı",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-01 02:22",
+        "estimated_delivery": "2025-10-08",
+        "description": "Ipsam delectus ratione.",
+        "weight": "1.0 kg",
+        "dimensions": "20x24x10 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-01 02:22",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-03 12:14",
+            "status": "Paket hazırlandı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-18 19:04",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          }
+        ]
+      },
+      "TR187275687": {
+        "status": "Yola çıktı",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-08 22:47",
+        "estimated_delivery": "2025-10-15",
+        "description": "Iusto maiores ipsum.",
+        "weight": "0.7 kg",
+        "dimensions": "39x7x6 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-08 22:47",
+            "status": "Sipariş alındı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-15 06:59",
+            "status": "Paket hazırlandı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-15 18:07",
+            "status": "Yola çıktı",
+            "location": "Ankara Dağıtım"
+          }
+        ]
+      }
+    }
+  },
+  "user461": {
+    "name": "Hinet Haliye Yaman",
+    "email": "menisan10@example.net",
+    "phone": "+90(385)931-9436x1252",
+    "member_since": "2025-08-26",
+    "cargos": {
+      "TR836069216": {
+        "status": "Dağıtımda",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-10-16 00:40",
+        "estimated_delivery": "2025-10-20",
+        "description": "Quas inventore nesciunt veritatis.",
+        "weight": "1.1 kg",
+        "dimensions": "22x28x3 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 24000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-16 00:40",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-18 00:13",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-18 11:44",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-18 12:05",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 14:33",
+            "status": "Dağıtıma çıktı",
+            "location": "Antalya Şubesi"
+          }
+        ]
+      },
+      "TR686562676": {
+        "status": "Yolda",
+        "location": "Adana, Türkiye",
+        "last_update": "2025-09-22 20:46",
+        "estimated_delivery": "2025-09-24",
+        "description": "Rerum doloremque nobis laborum molestiae.",
+        "weight": "3.3 kg",
+        "dimensions": "28x8x3 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-22 20:46",
+            "status": "Sipariş alındı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-09-23 01:36",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-09-26 17:22",
+            "status": "Yola çıktı",
+            "location": "İstanbul Dağıtım"
+          },
+          {
+            "date": "2025-10-04 11:39",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          }
+        ]
+      },
+      "TR932635988": {
+        "status": "Hazırlanıyor",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-10 02:19",
+        "estimated_delivery": "2025-10-14",
+        "description": "Praesentium hic vero provident.",
+        "weight": "2.6 kg",
+        "dimensions": "12x19x12 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-10 02:19",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          }
+        ]
+      },
+      "TR202929011": {
+        "status": "Yola çıktı",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-09-30 17:10",
+        "estimated_delivery": "2025-09-28",
+        "description": "Vitae non maxime.",
+        "weight": "3.2 kg",
+        "dimensions": "11x9x9 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-30 17:10",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-13 22:24",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-18 07:07",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          }
+        ]
+      },
+      "TR539531221": {
+        "status": "İade İşlemi",
+        "location": "Adana, Türkiye",
+        "last_update": "2025-09-20 04:59",
+        "estimated_delivery": "2025-09-21",
+        "description": "Tenetur assumenda.",
+        "weight": "3.8 kg",
+        "dimensions": "22x26x15 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-20 04:59",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-06 03:33",
+            "status": "Paket hazırlandı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-13 01:06",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-16 19:22",
+            "status": "Yolda",
+            "location": "İstanbul, Türkiye"
+          },
+          {
+            "date": "2025-10-18 16:53",
+            "status": "Dağıtıma çıktı",
+            "location": "Ankara Şubesi"
+          },
+          {
+            "date": "2025-10-18 17:48",
+            "status": "İade talebi alındı",
+            "location": "Antalya İade Merkezi"
+          }
+        ]
+      }
+    }
+  },
+  "user263": {
+    "name": "Gülbani Bilir Aksu",
+    "email": "rakcay@example.net",
+    "phone": "+90(070)782-6234x235",
+    "member_since": "2025-04-22",
+    "cargos": {
+      "TR337697902": {
+        "status": "İade İşlemi",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-10-13 15:41",
+        "estimated_delivery": "2025-10-18",
+        "description": "Placeat rerum impedit eius consectetur.",
+        "weight": "0.2 kg",
+        "dimensions": "47x23x8 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 39000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-13 15:41",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-17 17:49",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-17 19:02",
+            "status": "Yola çıktı",
+            "location": "Bursa Dağıtım"
+          },
+          {
+            "date": "2025-10-18 00:39",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 00:58",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          },
+          {
+            "date": "2025-10-18 02:33",
+            "status": "İade talebi alındı",
+            "location": "Bursa İade Merkezi"
+          }
+        ]
+      }
+    }
+  },
+  "user609": {
+    "name": "Damlanur Birben Demirel Sezgin",
+    "email": "durmusaltinisin@example.com",
+    "phone": "03402382295",
+    "member_since": "2025-07-26",
+    "cargos": {
+      "TR218557614": {
+        "status": "Hazırlanıyor",
+        "location": "Ankara, Türkiye",
+        "last_update": "2025-10-02 04:58",
+        "estimated_delivery": "2025-10-04",
+        "description": "Reprehenderit rerum similique nihil aspernatur.",
+        "weight": "1.3 kg",
+        "dimensions": "23x5x2 cm",
+        "carrier": "DHL",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-02 04:58",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          }
+        ]
+      },
+      "TR858475855": {
+        "status": "Dağıtımda",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-09-20 22:20",
+        "estimated_delivery": "2025-09-26",
+        "description": "Est illo vel praesentium.",
+        "weight": "3.1 kg",
+        "dimensions": "44x19x12 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 35000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-20 22:20",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-02 04:54",
+            "status": "Paket hazırlandı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-17 03:20",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          },
+          {
+            "date": "2025-10-18 12:43",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 14:37",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          }
+        ]
+      },
+      "TR580404539": {
+        "status": "Teslim edildi",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-09-30 11:07",
+        "estimated_delivery": "2025-09-28",
+        "description": "Cum veritatis nulla.",
+        "weight": "3.9 kg",
+        "dimensions": "40x27x17 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Evet - 86000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-30 11:07",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-07 03:21",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-08 19:36",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          },
+          {
+            "date": "2025-10-18 16:28",
+            "status": "Yolda",
+            "location": "İzmir, Türkiye"
+          },
+          {
+            "date": "2025-10-18 17:44",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          },
+          {
+            "date": "2025-10-18 18:32",
+            "status": "Teslim edildi",
+            "location": "İstanbul, Türkiye"
+          }
+        ]
+      }
+    }
+  },
+  "user562": {
+    "name": "Uz. Akay Büşranur Aksu Akçay",
+    "email": "fetullah77@example.net",
+    "phone": "09046154230",
+    "member_since": "2024-04-30",
+    "cargos": {
+      "TR985251122": {
+        "status": "Teslim edildi",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-12 00:19",
+        "estimated_delivery": "2025-10-14",
+        "description": "Odio veniam sed.",
+        "weight": "2.9 kg",
+        "dimensions": "50x9x19 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-12 00:19",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-13 16:08",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-17 18:50",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          },
+          {
+            "date": "2025-10-18 02:25",
+            "status": "Yolda",
+            "location": "Ankara, Türkiye"
+          },
+          {
+            "date": "2025-10-18 18:50",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          },
+          {
+            "date": "2025-10-18 19:05",
+            "status": "Teslim edildi",
+            "location": "Antalya, Türkiye"
+          }
+        ]
+      },
+      "TR481248394": {
+        "status": "Yola çıktı",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-09-21 11:31",
+        "estimated_delivery": "2025-09-25",
+        "description": "Esse tempore rem.",
+        "weight": "2.2 kg",
+        "dimensions": "27x22x5 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 62000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-21 11:31",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-09-22 14:28",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-15 12:02",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          }
+        ]
+      },
+      "TR477211234": {
+        "status": "Teslim edildi",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-09-21 22:03",
+        "estimated_delivery": "2025-09-23",
+        "description": "Quasi a quo repudiandae sequi.",
+        "weight": "2.7 kg",
+        "dimensions": "33x5x9 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-21 22:03",
+            "status": "Sipariş alındı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-09-23 05:25",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-10 18:08",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          },
+          {
+            "date": "2025-10-14 12:21",
+            "status": "Yolda",
+            "location": "Konya, Türkiye"
+          },
+          {
+            "date": "2025-10-17 15:16",
+            "status": "Dağıtıma çıktı",
+            "location": "Antalya Şubesi"
+          },
+          {
+            "date": "2025-10-18 02:46",
+            "status": "Teslim edildi",
+            "location": "Antalya, Türkiye"
+          }
+        ]
+      }
+    }
+  },
+  "user284": {
+    "name": "Prof. Dürrüşehvar Deryanur Durmuş",
+    "email": "berrin27@example.org",
+    "phone": "04066727521",
+    "member_since": "2024-03-02",
+    "cargos": {
+      "TR443326625": {
+        "status": "Yola çıktı",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-10-17 22:37",
+        "estimated_delivery": "2025-10-22",
+        "description": "Maiores odit magnam cumque.",
+        "weight": "4.0 kg",
+        "dimensions": "35x19x19 cm",
+        "carrier": "DHL",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-17 22:37",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-18 05:58",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-18 08:25",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          }
+        ]
+      },
+      "TR426626427": {
+        "status": "Yolda",
+        "location": "İzmir, Türkiye",
+        "last_update": "2025-09-27 12:29",
+        "estimated_delivery": "2025-09-28",
+        "description": "Non ad at.",
+        "weight": "2.0 kg",
+        "dimensions": "13x28x15 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 92000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-27 12:29",
+            "status": "Sipariş alındı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-08 13:01",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-17 07:14",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-17 21:40",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          }
+        ]
+      }
+    }
+  },
+  "user912": {
+    "name": "Av. Mehdiye Sebigül Fırat",
+    "email": "razi12@example.org",
+    "phone": "07499813065",
+    "member_since": "2023-12-09",
+    "cargos": {
+      "TR324746081": {
+        "status": "Hazırlanıyor",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-09-29 00:25",
+        "estimated_delivery": "2025-09-28",
+        "description": "Exercitationem cumque mollitia ipsa nobis.",
+        "weight": "4.0 kg",
+        "dimensions": "46x19x13 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 78000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-29 00:25",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          }
+        ]
+      },
+      "TR625449651": {
+        "status": "Yolda",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-10-02 06:25",
+        "estimated_delivery": "2025-10-04",
+        "description": "Eius in ipsam.",
+        "weight": "1.1 kg",
+        "dimensions": "39x22x9 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 51000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-02 06:25",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-07 12:08",
+            "status": "Paket hazırlandı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-11 08:38",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          },
+          {
+            "date": "2025-10-15 12:30",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          }
+        ]
+      },
+      "TR319776815": {
+        "status": "Dağıtımda",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-10-01 14:44",
+        "estimated_delivery": "2025-10-02",
+        "description": "Ratione quisquam.",
+        "weight": "4.1 kg",
+        "dimensions": "50x16x3 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-01 14:44",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-08 05:47",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-12 08:42",
+            "status": "Yola çıktı",
+            "location": "Antalya Dağıtım"
+          },
+          {
+            "date": "2025-10-16 21:49",
+            "status": "Yolda",
+            "location": "Konya, Türkiye"
+          },
+          {
+            "date": "2025-10-17 13:04",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          }
+        ]
+      },
+      "TR359135423": {
+        "status": "Dağıtımda",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-09 05:17",
+        "estimated_delivery": "2025-10-16",
+        "description": "Neque aperiam accusantium sequi atque.",
+        "weight": "3.9 kg",
+        "dimensions": "32x22x11 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 36000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-09 05:17",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-13 22:13",
+            "status": "Paket hazırlandı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-15 23:41",
+            "status": "Yola çıktı",
+            "location": "Bursa Dağıtım"
+          },
+          {
+            "date": "2025-10-17 23:26",
+            "status": "Yolda",
+            "location": "İstanbul, Türkiye"
+          },
+          {
+            "date": "2025-10-18 05:23",
+            "status": "Dağıtıma çıktı",
+            "location": "Bursa Şubesi"
+          }
+        ]
+      },
+      "TR967098251": {
+        "status": "İade İşlemi",
+        "location": "İzmir, Türkiye",
+        "last_update": "2025-09-25 22:04",
+        "estimated_delivery": "2025-09-28",
+        "description": "Minima nihil consectetur quos.",
+        "weight": "0.6 kg",
+        "dimensions": "42x25x10 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 47000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-25 22:04",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-11 07:16",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-13 05:13",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-16 01:41",
+            "status": "Yolda",
+            "location": "Ankara, Türkiye"
+          },
+          {
+            "date": "2025-10-18 00:47",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          },
+          {
+            "date": "2025-10-18 08:14",
+            "status": "İade talebi alındı",
+            "location": "İzmir İade Merkezi"
+          }
+        ]
+      }
+    }
+  },
+  "user463": {
+    "name": "Tecimer Şama",
+    "email": "nurmelekhancer@example.org",
+    "phone": "976 0 418",
+    "member_since": "2023-12-12",
+    "cargos": {
+      "TR509782768": {
+        "status": "Teslim edildi",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-10-05 07:55",
+        "estimated_delivery": "2025-10-11",
+        "description": "Dolores iure dolorum.",
+        "weight": "4.5 kg",
+        "dimensions": "18x11x2 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 99000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-05 07:55",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-13 12:20",
+            "status": "Paket hazırlandı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-14 14:09",
+            "status": "Yola çıktı",
+            "location": "Bursa Dağıtım"
+          },
+          {
+            "date": "2025-10-17 10:19",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 09:21",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          },
+          {
+            "date": "2025-10-18 13:03",
+            "status": "Teslim edildi",
+            "location": "Bursa, Türkiye"
+          }
+        ]
+      },
+      "TR625074128": {
+        "status": "Hazırlanıyor",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-09-30 19:48",
+        "estimated_delivery": "2025-09-28",
+        "description": "Architecto adipisci possimus facilis.",
+        "weight": "0.1 kg",
+        "dimensions": "27x6x11 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 14000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-30 19:48",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          }
+        ]
+      },
+      "TR140689877": {
+        "status": "Yola çıktı",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-09-25 01:47",
+        "estimated_delivery": "2025-09-27",
+        "description": "Earum dolores doloremque aliquid libero.",
+        "weight": "4.1 kg",
+        "dimensions": "48x11x13 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Evet - 44000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-25 01:47",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-06 06:28",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-18 09:44",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          }
+        ]
+      },
+      "TR150340748": {
+        "status": "Yola çıktı",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-10-07 22:41",
+        "estimated_delivery": "2025-10-11",
+        "description": "Nostrum id blanditiis.",
+        "weight": "3.6 kg",
+        "dimensions": "28x7x12 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Evet - 58000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-07 22:41",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-16 03:32",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-16 03:35",
+            "status": "Yola çıktı",
+            "location": "Bursa Dağıtım"
+          }
+        ]
+      },
+      "TR910305773": {
+        "status": "Dağıtımda",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-09-20 22:11",
+        "estimated_delivery": "2025-09-24",
+        "description": "Fugiat autem magnam deserunt.",
+        "weight": "4.8 kg",
+        "dimensions": "47x19x14 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 26000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-20 22:11",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-12 15:33",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-12 16:46",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-17 14:21",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          },
+          {
+            "date": "2025-10-17 21:38",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          }
+        ]
+      }
+    }
+  },
+  "user908": {
+    "name": "Sabır Gülen Bilir",
+    "email": "cetinmeshur@example.org",
+    "phone": "+90(898)451-0417x2573",
+    "member_since": "2025-09-01",
+    "cargos": {
+      "TR290135971": {
+        "status": "İade İşlemi",
+        "location": "İzmir, Türkiye",
+        "last_update": "2025-10-07 20:32",
+        "estimated_delivery": "2025-10-14",
+        "description": "Porro architecto vitae aliquam.",
+        "weight": "3.5 kg",
+        "dimensions": "31x23x7 cm",
+        "carrier": "DHL",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-07 20:32",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-10 19:47",
+            "status": "Paket hazırlandı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-17 00:17",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-17 01:15",
+            "status": "Yolda",
+            "location": "Ankara, Türkiye"
+          },
+          {
+            "date": "2025-10-17 22:07",
+            "status": "Dağıtıma çıktı",
+            "location": "İzmir Şubesi"
+          },
+          {
+            "date": "2025-10-18 18:25",
+            "status": "İade talebi alındı",
+            "location": "İzmir İade Merkezi"
+          }
+        ]
+      },
+      "TR190782157": {
+        "status": "Hazırlanıyor",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-10-02 18:55",
+        "estimated_delivery": "2025-10-07",
+        "description": "Tempora aliquid asperiores.",
+        "weight": "3.5 kg",
+        "dimensions": "17x5x3 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-02 18:55",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          }
+        ]
+      },
+      "TR595384337": {
+        "status": "İade İşlemi",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-09-22 23:02",
+        "estimated_delivery": "2025-09-23",
+        "description": "Saepe dolorem illo placeat.",
+        "weight": "1.0 kg",
+        "dimensions": "50x22x18 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-22 23:02",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-15 01:08",
+            "status": "Paket hazırlandı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-16 19:44",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-18 14:45",
+            "status": "Yolda",
+            "location": "Konya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 17:30",
+            "status": "Dağıtıma çıktı",
+            "location": "Adana Şubesi"
+          },
+          {
+            "date": "2025-10-18 18:47",
+            "status": "İade talebi alındı",
+            "location": "Konya İade Merkezi"
+          }
+        ]
+      }
+    }
+  },
+  "user820": {
+    "name": "Ferihan Sökmen Bilge",
+    "email": "hekmetzorlu@example.net",
+    "phone": "+90(961)5502059",
+    "member_since": "2023-12-10",
+    "cargos": {
+      "TR701048433": {
+        "status": "Hazırlanıyor",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-09-23 10:40",
+        "estimated_delivery": "2025-09-28",
+        "description": "Nulla voluptatem dolore.",
+        "weight": "1.5 kg",
+        "dimensions": "46x14x15 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-23 10:40",
+            "status": "Sipariş alındı",
+            "location": "Ankara Depo"
+          }
+        ]
+      },
+      "TR219123197": {
+        "status": "İade İşlemi",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-09-19 02:47",
+        "estimated_delivery": "2025-09-22",
+        "description": "Error incidunt nihil voluptate quis.",
+        "weight": "4.0 kg",
+        "dimensions": "49x11x15 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 37000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-19 02:47",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-09 12:41",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-14 00:03",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          },
+          {
+            "date": "2025-10-16 17:27",
+            "status": "Yolda",
+            "location": "Konya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 05:23",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          },
+          {
+            "date": "2025-10-18 12:10",
+            "status": "İade talebi alındı",
+            "location": "Bursa İade Merkezi"
+          }
+        ]
+      },
+      "TR944590962": {
+        "status": "Yola çıktı",
+        "location": "İzmir, Türkiye",
+        "last_update": "2025-09-25 23:34",
+        "estimated_delivery": "2025-09-28",
+        "description": "Corporis nam nihil iure.",
+        "weight": "4.4 kg",
+        "dimensions": "15x17x16 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Evet - 49000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-25 23:34",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-12 21:13",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-17 21:06",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          }
+        ]
+      },
+      "TR224152174": {
+        "status": "Dağıtımda",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-10-14 06:02",
+        "estimated_delivery": "2025-10-20",
+        "description": "Cupiditate inventore libero quam.",
+        "weight": "2.6 kg",
+        "dimensions": "43x23x7 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 96000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-14 06:02",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-16 18:20",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-17 13:16",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-18 06:50",
+            "status": "Yolda",
+            "location": "İstanbul, Türkiye"
+          },
+          {
+            "date": "2025-10-18 10:48",
+            "status": "Dağıtıma çıktı",
+            "location": "Bursa Şubesi"
+          }
+        ]
+      },
+      "TR795814387": {
+        "status": "Dağıtımda",
+        "location": "İzmir, Türkiye",
+        "last_update": "2025-10-14 09:22",
+        "estimated_delivery": "2025-10-19",
+        "description": "Repellendus culpa voluptate.",
+        "weight": "1.2 kg",
+        "dimensions": "44x19x4 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 30000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-14 09:22",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-16 03:01",
+            "status": "Paket hazırlandı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-16 10:22",
+            "status": "Yola çıktı",
+            "location": "İstanbul Dağıtım"
+          },
+          {
+            "date": "2025-10-17 09:44",
+            "status": "Yolda",
+            "location": "İstanbul, Türkiye"
+          },
+          {
+            "date": "2025-10-17 16:30",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          }
+        ]
+      }
+    }
+  },
+  "user141": {
+    "name": "Toköz Özdil Arsoy",
+    "email": "yyorulmaz@example.com",
+    "phone": "+90 (270) 1967608",
+    "member_since": "2024-08-20",
+    "cargos": {
+      "TR597707010": {
+        "status": "Teslim edildi",
+        "location": "Ankara, Türkiye",
+        "last_update": "2025-10-07 22:59",
+        "estimated_delivery": "2025-10-09",
+        "description": "Ea consequatur iusto magnam.",
+        "weight": "0.2 kg",
+        "dimensions": "12x6x6 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-07 22:59",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-16 14:19",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-18 18:47",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-18 18:50",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 19:01",
+            "status": "Dağıtıma çıktı",
+            "location": "Bursa Şubesi"
+          },
+          {
+            "date": "2025-10-18 19:02",
+            "status": "Teslim edildi",
+            "location": "İstanbul, Türkiye"
+          }
+        ]
+      }
+    }
+  },
+  "user384": {
+    "name": "Sevdinar Duran",
+    "email": "azade69@example.com",
+    "phone": "0517 308 28 79",
+    "member_since": "2023-10-31",
+    "cargos": {
+      "TR888119503": {
+        "status": "Hazırlanıyor",
+        "location": "Ankara, Türkiye",
+        "last_update": "2025-10-05 10:03",
+        "estimated_delivery": "2025-10-11",
+        "description": "Iste blanditiis.",
+        "weight": "2.0 kg",
+        "dimensions": "39x11x6 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Evet - 14000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-05 10:03",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          }
+        ]
+      }
+    }
+  },
+  "user779": {
+    "name": "Özakan Gürelcem Korutürk",
+    "email": "ozerdincakar@example.com",
+    "phone": "+90(755)0018428",
+    "member_since": "2025-07-12",
+    "cargos": {
+      "TR939937861": {
+        "status": "Dağıtımda",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-09-21 11:12",
+        "estimated_delivery": "2025-09-28",
+        "description": "Quia nulla ipsum.",
+        "weight": "1.4 kg",
+        "dimensions": "10x16x17 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Evet - 84000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-21 11:12",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-09 18:05",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-18 00:55",
+            "status": "Yola çıktı",
+            "location": "İstanbul Dağıtım"
+          },
+          {
+            "date": "2025-10-18 12:08",
+            "status": "Yolda",
+            "location": "Ankara, Türkiye"
+          },
+          {
+            "date": "2025-10-18 15:44",
+            "status": "Dağıtıma çıktı",
+            "location": "İzmir Şubesi"
+          }
+        ]
+      },
+      "TR380438225": {
+        "status": "İade İşlemi",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-07 10:10",
+        "estimated_delivery": "2025-10-10",
+        "description": "Fuga dolores possimus incidunt rem.",
+        "weight": "3.5 kg",
+        "dimensions": "14x11x3 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 67000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-07 10:10",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-10 04:26",
+            "status": "Paket hazırlandı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-14 17:34",
+            "status": "Yola çıktı",
+            "location": "İstanbul Dağıtım"
+          },
+          {
+            "date": "2025-10-18 04:01",
+            "status": "Yolda",
+            "location": "İstanbul, Türkiye"
+          },
+          {
+            "date": "2025-10-18 04:46",
+            "status": "Dağıtıma çıktı",
+            "location": "İzmir Şubesi"
+          },
+          {
+            "date": "2025-10-18 15:17",
+            "status": "İade talebi alındı",
+            "location": "Bursa İade Merkezi"
+          }
+        ]
+      }
+    }
+  },
+  "user508": {
+    "name": "Tangül Arsoy",
+    "email": "gulgokay@example.com",
+    "phone": "0644-907 8701",
+    "member_since": "2025-08-08",
+    "cargos": {
+      "TR298372377": {
+        "status": "Teslim edildi",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-09-24 10:35",
+        "estimated_delivery": "2025-09-28",
+        "description": "Officiis totam nostrum optio.",
+        "weight": "0.2 kg",
+        "dimensions": "32x15x14 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 95000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-24 10:35",
+            "status": "Sipariş alındı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-09-28 14:01",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-18 02:15",
+            "status": "Yola çıktı",
+            "location": "Bursa Dağıtım"
+          },
+          {
+            "date": "2025-10-18 06:55",
+            "status": "Yolda",
+            "location": "İstanbul, Türkiye"
+          },
+          {
+            "date": "2025-10-18 15:57",
+            "status": "Dağıtıma çıktı",
+            "location": "Ankara Şubesi"
+          },
+          {
+            "date": "2025-10-18 17:14",
+            "status": "Teslim edildi",
+            "location": "Konya, Türkiye"
+          }
+        ]
+      },
+      "TR165868012": {
+        "status": "Teslim edildi",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-10-06 04:04",
+        "estimated_delivery": "2025-10-11",
+        "description": "Similique voluptatibus culpa voluptatibus nihil.",
+        "weight": "3.7 kg",
+        "dimensions": "36x8x2 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 53000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-06 04:04",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-07 23:14",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-13 01:13",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          },
+          {
+            "date": "2025-10-16 14:40",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          },
+          {
+            "date": "2025-10-16 16:40",
+            "status": "Dağıtıma çıktı",
+            "location": "Adana Şubesi"
+          },
+          {
+            "date": "2025-10-17 01:30",
+            "status": "Teslim edildi",
+            "location": "Ankara, Türkiye"
+          }
+        ]
+      },
+      "TR204949612": {
+        "status": "Dağıtımda",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-09-29 10:03",
+        "estimated_delivery": "2025-09-28",
+        "description": "Accusantium asperiores.",
+        "weight": "3.8 kg",
+        "dimensions": "48x28x10 cm",
+        "carrier": "UPS",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-29 10:03",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-15 01:48",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-15 11:27",
+            "status": "Yola çıktı",
+            "location": "Ankara Dağıtım"
+          },
+          {
+            "date": "2025-10-18 15:55",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 18:46",
+            "status": "Dağıtıma çıktı",
+            "location": "Ankara Şubesi"
+          }
+        ]
+      },
+      "TR342781660": {
+        "status": "Dağıtımda",
+        "location": "Adana, Türkiye",
+        "last_update": "2025-10-10 06:55",
+        "estimated_delivery": "2025-10-13",
+        "description": "Tempore ea in.",
+        "weight": "3.9 kg",
+        "dimensions": "47x11x4 cm",
+        "carrier": "Aras Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-10 06:55",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-11 00:54",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-14 20:05",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          },
+          {
+            "date": "2025-10-16 04:35",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          },
+          {
+            "date": "2025-10-17 14:13",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          }
+        ]
+      }
+    }
+  },
+  "user157": {
+    "name": "Diken Gül",
+    "email": "fbilgin@example.net",
+    "phone": "05665949172",
+    "member_since": "2025-01-31",
+    "cargos": {
+      "TR950533402": {
+        "status": "Teslim edildi",
+        "location": "Ankara, Türkiye",
+        "last_update": "2025-09-27 01:08",
+        "estimated_delivery": "2025-09-28",
+        "description": "Cupiditate et temporibus.",
+        "weight": "2.5 kg",
+        "dimensions": "30x17x20 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Evet - 79000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-27 01:08",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-05 23:57",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-15 07:15",
+            "status": "Yola çıktı",
+            "location": "Bursa Dağıtım"
+          },
+          {
+            "date": "2025-10-17 18:49",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 11:01",
+            "status": "Dağıtıma çıktı",
+            "location": "Adana Şubesi"
+          },
+          {
+            "date": "2025-10-18 13:07",
+            "status": "Teslim edildi",
+            "location": "İzmir, Türkiye"
+          }
+        ]
+      },
+      "TR834398777": {
+        "status": "Teslim edildi",
+        "location": "Ankara, Türkiye",
+        "last_update": "2025-10-06 12:04",
+        "estimated_delivery": "2025-10-10",
+        "description": "Fugiat tempora harum dignissimos.",
+        "weight": "2.1 kg",
+        "dimensions": "39x26x7 cm",
+        "carrier": "UPS",
+        "insurance": "Evet - 88000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-06 12:04",
+            "status": "Sipariş alındı",
+            "location": "Antalya Depo"
+          },
+          {
+            "date": "2025-10-18 06:26",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-18 17:17",
+            "status": "Yola çıktı",
+            "location": "İstanbul Dağıtım"
+          },
+          {
+            "date": "2025-10-18 18:46",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 18:47",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          },
+          {
+            "date": "2025-10-18 18:56",
+            "status": "Teslim edildi",
+            "location": "Ankara, Türkiye"
+          }
+        ]
+      },
+      "TR863361656": {
+        "status": "Teslim edildi",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-14 11:44",
+        "estimated_delivery": "2025-10-18",
+        "description": "Maiores quidem molestias.",
+        "weight": "2.6 kg",
+        "dimensions": "10x12x9 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 37000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-14 11:44",
+            "status": "Sipariş alındı",
+            "location": "Konya Depo"
+          },
+          {
+            "date": "2025-10-17 07:07",
+            "status": "Paket hazırlandı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-18 11:55",
+            "status": "Yola çıktı",
+            "location": "Ankara Dağıtım"
+          },
+          {
+            "date": "2025-10-18 13:34",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 13:56",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          },
+          {
+            "date": "2025-10-18 18:54",
+            "status": "Teslim edildi",
+            "location": "Adana, Türkiye"
+          }
+        ]
+      }
+    }
+  },
+  "user383": {
+    "name": "Gazel Hazrat Zorlu",
+    "email": "omriyegul@example.com",
+    "phone": "472 1 835",
+    "member_since": "2024-01-09",
+    "cargos": {
+      "TR462942069": {
+        "status": "Hazırlanıyor",
+        "location": "Adana, Türkiye",
+        "last_update": "2025-09-30 15:57",
+        "estimated_delivery": "2025-09-28",
+        "description": "Consequuntur hic unde porro.",
+        "weight": "4.8 kg",
+        "dimensions": "43x11x8 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 96000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-30 15:57",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          }
+        ]
+      }
+    }
+  },
+  "user295": {
+    "name": "Öğr. Gül Teybet Güçlü",
+    "email": "inonuturcein@example.com",
+    "phone": "+90(383)706-5348x1228",
+    "member_since": "2024-05-26",
+    "cargos": {
+      "TR934833812": {
+        "status": "Dağıtımda",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-09-19 10:28",
+        "estimated_delivery": "2025-09-25",
+        "description": "Eos fuga sapiente delectus.",
+        "weight": "3.3 kg",
+        "dimensions": "21x17x11 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 65000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-19 10:28",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-09-29 07:13",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-16 03:10",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-17 23:04",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          },
+          {
+            "date": "2025-10-18 06:41",
+            "status": "Dağıtıma çıktı",
+            "location": "İzmir Şubesi"
+          }
+        ]
+      }
+    }
+  },
+  "user180": {
+    "name": "Ağmur Ülküdeş Yılmaz Çorlu",
+    "email": "dumanlisecme@example.org",
+    "phone": "+90(704)392-9583x8030",
+    "member_since": "2025-02-08",
+    "cargos": {
+      "TR990919315": {
+        "status": "Teslim edildi",
+        "location": "Bursa, Türkiye",
+        "last_update": "2025-09-20 12:50",
+        "estimated_delivery": "2025-09-23",
+        "description": "Ad expedita modi repellendus.",
+        "weight": "1.9 kg",
+        "dimensions": "45x16x17 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 60000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-09-20 12:50",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-09-27 15:38",
+            "status": "Paket hazırlandı",
+            "location": "Ankara Depo"
+          },
+          {
+            "date": "2025-10-10 11:12",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-17 20:56",
+            "status": "Yolda",
+            "location": "Ankara, Türkiye"
+          },
+          {
+            "date": "2025-10-18 16:06",
+            "status": "Dağıtıma çıktı",
+            "location": "Konya Şubesi"
+          },
+          {
+            "date": "2025-10-18 17:34",
+            "status": "Teslim edildi",
+            "location": "Ankara, Türkiye"
+          }
+        ]
+      },
+      "TR354294029": {
+        "status": "İade İşlemi",
+        "location": "Adana, Türkiye",
+        "last_update": "2025-10-08 01:29",
+        "estimated_delivery": "2025-10-13",
+        "description": "Beatae nisi porro eius earum.",
+        "weight": "4.2 kg",
+        "dimensions": "12x9x16 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-08 01:29",
+            "status": "Sipariş alındı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-13 13:35",
+            "status": "Paket hazırlandı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-17 19:40",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-18 00:20",
+            "status": "Yolda",
+            "location": "Konya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 07:24",
+            "status": "Dağıtıma çıktı",
+            "location": "İstanbul Şubesi"
+          },
+          {
+            "date": "2025-10-18 13:21",
+            "status": "İade talebi alındı",
+            "location": "Adana İade Merkezi"
+          }
+        ]
+      },
+      "TR795105636": {
+        "status": "İade İşlemi",
+        "location": "Antalya, Türkiye",
+        "last_update": "2025-10-10 02:00",
+        "estimated_delivery": "2025-10-15",
+        "description": "Facilis quasi modi ipsam.",
+        "weight": "0.1 kg",
+        "dimensions": "48x12x15 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-10 02:00",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-12 15:00",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-13 12:28",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-17 21:48",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          },
+          {
+            "date": "2025-10-18 05:40",
+            "status": "Dağıtıma çıktı",
+            "location": "Adana Şubesi"
+          },
+          {
+            "date": "2025-10-18 14:16",
+            "status": "İade talebi alındı",
+            "location": "İstanbul İade Merkezi"
+          }
+        ]
+      },
+      "TR937898889": {
+        "status": "İade İşlemi",
+        "location": "Konya, Türkiye",
+        "last_update": "2025-10-17 01:12",
+        "estimated_delivery": "2025-10-21",
+        "description": "Omnis non earum excepturi magni.",
+        "weight": "4.5 kg",
+        "dimensions": "48x28x2 cm",
+        "carrier": "DHL",
+        "insurance": "Evet - 68000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-17 01:12",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-18 06:32",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-18 12:54",
+            "status": "Yola çıktı",
+            "location": "İzmir Dağıtım"
+          },
+          {
+            "date": "2025-10-18 17:06",
+            "status": "Yolda",
+            "location": "Adana, Türkiye"
+          },
+          {
+            "date": "2025-10-18 17:57",
+            "status": "Dağıtıma çıktı",
+            "location": "Antalya Şubesi"
+          },
+          {
+            "date": "2025-10-18 18:39",
+            "status": "İade talebi alındı",
+            "location": "İzmir İade Merkezi"
+          }
+        ]
+      },
+      "TR100327517": {
+        "status": "Teslim edildi",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-09-27 14:15",
+        "estimated_delivery": "2025-09-28",
+        "description": "Iure exercitationem.",
+        "weight": "2.9 kg",
+        "dimensions": "23x19x17 cm",
+        "carrier": "DHL",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-09-27 14:15",
+            "status": "Sipariş alındı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-09 09:32",
+            "status": "Paket hazırlandı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-13 19:39",
+            "status": "Yola çıktı",
+            "location": "Adana Dağıtım"
+          },
+          {
+            "date": "2025-10-16 14:52",
+            "status": "Yolda",
+            "location": "Antalya, Türkiye"
+          },
+          {
+            "date": "2025-10-16 18:31",
+            "status": "Dağıtıma çıktı",
+            "location": "Bursa Şubesi"
+          },
+          {
+            "date": "2025-10-17 20:58",
+            "status": "Teslim edildi",
+            "location": "İzmir, Türkiye"
+          }
+        ]
+      }
+    }
+  },
+  "user952": {
+    "name": "Turabi Şama",
+    "email": "hurican03@example.net",
+    "phone": "0902-695 2975",
+    "member_since": "2024-01-22",
+    "cargos": {
+      "TR716214343": {
+        "status": "Dağıtımda",
+        "location": "İstanbul, Türkiye",
+        "last_update": "2025-10-17 17:52",
+        "estimated_delivery": "2025-10-23",
+        "description": "Aperiam molestias.",
+        "weight": "2.4 kg",
+        "dimensions": "27x12x20 cm",
+        "carrier": "MNG Kargo",
+        "insurance": "Hayır",
+        "tracking_history": [
+          {
+            "date": "2025-10-17 17:52",
+            "status": "Sipariş alındı",
+            "location": "İzmir Depo"
+          },
+          {
+            "date": "2025-10-18 14:10",
+            "status": "Paket hazırlandı",
+            "location": "Adana Depo"
+          },
+          {
+            "date": "2025-10-18 16:33",
+            "status": "Yola çıktı",
+            "location": "Konya Dağıtım"
+          },
+          {
+            "date": "2025-10-18 18:25",
+            "status": "Yolda",
+            "location": "Bursa, Türkiye"
+          },
+          {
+            "date": "2025-10-18 18:54",
+            "status": "Dağıtıma çıktı",
+            "location": "Antalya Şubesi"
+          }
+        ]
+      },
+      "TR449439990": {
+        "status": "Yola çıktı",
+        "location": "Adana, Türkiye",
+        "last_update": "2025-10-09 00:31",
+        "estimated_delivery": "2025-10-15",
+        "description": "Iure officiis perferendis.",
+        "weight": "3.2 kg",
+        "dimensions": "13x26x19 cm",
+        "carrier": "Sürat Kargo",
+        "insurance": "Evet - 33000 TL",
+        "tracking_history": [
+          {
+            "date": "2025-10-09 00:31",
+            "status": "Sipariş alındı",
+            "location": "İstanbul Depo"
+          },
+          {
+            "date": "2025-10-15 03:01",
+            "status": "Paket hazırlandı",
+            "location": "Bursa Depo"
+          },
+          {
+            "date": "2025-10-18 02:06",
+            "status": "Yola çıktı",
+            "location": "Ankara Dağıtım"
+          }
+        ]
+      }
+    }
+  }
+}
