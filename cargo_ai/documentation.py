@@ -69,7 +69,7 @@ def _parse_markdown_sections(md_path: Path, document_id: str) -> List[DocumentSe
     start_line = 0
 
     def flush(end_index: int) -> None:
-        nonlocal current_lines, current_path, current_level, start_line
+        nonlocal current_lines
         if not current_path or not current_lines:
             current_lines = []
             return
