@@ -3,10 +3,15 @@ import os
 import re
 import sqlite3
 from datetime import datetime
+from pathlib import Path
 
 import streamlit as st
 from huggingface_hub import login
-from transformers import pipeline
+try:  # Transformers import - GPU bağımlı
+    from transformers import pipeline
+except ImportError as e:
+    print(f"WARNING: Transformers yüklenemedi: {e}")
+    pipeline = None  # type: ignore
 
 # Veritabanı bağlantısı için global değişken
 DB_PATH = "cargo_database.db"
@@ -17,6 +22,37 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+try:  # RAG entegrasyonu için opsiyonel import
+    from cargo_ai.rag_pipeline import HybridResponder, RAGPipeline
+except Exception as rag_import_error:  # pragma: no cover - ortam bağımlı
+    logger.warning("RAG pipeline yüklenemedi: %s", rag_import_error)
+    HybridResponder = None  # type: ignore
+    RAGPipeline = None  # type: ignore
+
+POLICY_KEYWORDS = [
+    "teslimat",
+    "iade",
+    "garanti",
+    "iptal",
+    "kusurlu",
+    "yoğun",
+    "kredi kartı",
+    "fiyat",
+]
+
+POLICY_NEGATIVE_KEYWORDS = [
+    "fiyat",
+    "kredi kart",
+    "piyasaya",
+    "lansman",
+    "ödeme kart",
+]
+
+POLICY_NO_RESULT_RESPONSE = (
+    "Bu konuda resmi kayıtlarda bilgi bulunmuyor. Detay için müşteri hizmetleri"
+    " ekibiyle iletişime geçebilirsiniz."
+)
+
 
 def get_db_connection():
     """SQLite veritabanı bağlantısı oluşturur"""
@@ -26,8 +62,12 @@ def get_db_connection():
 # Güvenli login - ortam değişkeni kullan
 @st.cache_resource
 def load_model():
+    if pipeline is None:
+        return None  # Transformers yüklenemedi
+    
     token = os.environ.get("HF_TOKEN")
     if not token:
+        st.warning(f"Hugging Face token bulunamadı: {token}")
         return None  # Token yoksa model yüklenmez
 
     try:
@@ -39,6 +79,49 @@ def load_model():
     except Exception as e:
         st.error(f"❌ Model yüklenirken hata: {str(e)}")
         return None
+
+
+def is_policy_question(prompt: str) -> bool:
+    prompt_lower = prompt.lower()
+    return any(keyword in prompt_lower for keyword in POLICY_KEYWORDS)
+
+
+@st.cache_resource
+def load_policy_assistant():
+    if HybridResponder is None or RAGPipeline is None:
+        return None
+
+    index_path = Path("data/index/tfidf_index.pkl")
+    if not index_path.exists():
+        logger.info("Politika RAG indeksi bulunamadı, hibrit asistan pasif")
+        return None
+
+    try:
+        pipeline = RAGPipeline()
+        pipeline.load(index_path)
+        return HybridResponder(pipeline, min_score=0.22)
+    except Exception as exc:  # pragma: no cover - IO hataları
+        logger.warning("Politika RAG pipeline başlatılamadı: %s", exc)
+        return None
+
+
+def maybe_answer_policy_question(prompt: str) -> tuple[bool, str | None]:
+    if not is_policy_question(prompt):
+        return False, None
+
+    lowered = prompt.lower()
+    if any(keyword in lowered for keyword in POLICY_NEGATIVE_KEYWORDS):
+        return True, POLICY_NO_RESULT_RESPONSE
+
+    responder = load_policy_assistant()
+    if responder is None:
+        return True, POLICY_NO_RESULT_RESPONSE
+
+    response = responder.answer(prompt)
+    if response:
+        return True, response
+
+    return True, POLICY_NO_RESULT_RESPONSE
 
 
 # Kargo verilerini yükle
@@ -478,6 +561,14 @@ def cargo_status_bot(pipe, prompt, user_cargos):
     tracking_number = extract_tracking_number(prompt)
 
     if not tracking_number:
+        handled, policy_response = maybe_answer_policy_question(prompt)
+        if handled and policy_response:
+            st.session_state.chat_history.append({"role": "user", "content": prompt})
+            st.session_state.chat_history.append(
+                {"role": "assistant", "content": policy_response}
+            )
+            return policy_response
+
         return "Üzgünüm, takip numaranızı bulamadım. Lütfen TR ile başlayan 9 haneli takip numaranızı belirtin (örn: TR123456789). İade veya iptal talepleriniz için de takip numaranızı belirtmeniz gerekir."
 
     # Kullanıcının kargolarında bu takip numarası var mı kontrol et

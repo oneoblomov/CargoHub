@@ -189,7 +189,7 @@ Veritabanı yönetim ve görüntüleme uygulaması (`db_viewer.py`):
 
 ### 🗂️ Proje Yapısı
 
-```
+```text
 CargoHub/
 ├── cargo_app.py              # Ana Streamlit UI uygulaması
 ├── cargo_chat.py             # AI chatbot ve veri erişim modülü
@@ -280,6 +280,17 @@ CREATE TABLE tracking_history (
 - **Mocking:** unittest.mock, conftest.py
 - **CI/CD:** GitHub Actions
 - **Test Dosyaları:** `tests/test_*.py`
+
+### 📚 Bilgi Tabanı & RAG İş Akışı
+
+- **Doküman Havuzu:** Politika ve süreç içerikleri `docs/source_corpus/` altında Markdown olarak saklanır.
+- **Parçalama:** `python scripts/prepare_documents.py` komutu dokümanları 200 kelimelik chunk'lara bölerek `data/index/chunks.jsonl` dosyasını üretir.
+- **QA Üretimi:** `python scripts/generate_qa.py` politik dokümanlardan Basit / Karmaşık / Negatif soru-cevap çiftlerini türetir ve `data/qa/{train,dev,test}.jsonl` çıktılarını oluşturur.
+- **Vektör İndeksi:** `python scripts/build_rag_index.py` TF-IDF tabanlı RAG indeksini `data/index/tfidf_index.pkl` yoluna kaydeder.
+- **Değerlendirme:** `python scripts/evaluate_models.py --dataset data/qa/test/test.jsonl` komutu hibrit asistanın soru tiplerine göre başarımını raporlar.
+- **Opsiyonel Fine-Tune:** `python scripts/fine_tune_lora.py --model <temel-model>` LoRA ile açık kaynak modeli (örn. `google/gemma-2b-it`) CargoHub QA verisi üzerinde ince ayar yapar. Bu adım için ek bağımlılıklar (`datasets`, `peft`, `accelerate`, `bitsandbytes`) gerekir.
+
+> Not: RAG pipeline'ı `scikit-learn` bağımlılığı ile TF-IDF kullanır; negatif sorularda güvenli cevap verebilmek için benzerlik eşiği `cargo_chat.py` içerisinde yapılandırılmıştır.
 
 ## 🔧 Gelişmiş Özellikler
 
