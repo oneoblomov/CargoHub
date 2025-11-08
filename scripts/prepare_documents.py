@@ -37,7 +37,9 @@ def prepare_documents(source_dir: Path, output_path: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="CargoHub dokümanlarını chunk'lara böler")
+    parser = argparse.ArgumentParser(
+        description="CargoHub dokümanlarını chunk'lara böler"
+    )
     parser.add_argument(
         "--source",
         type=Path,

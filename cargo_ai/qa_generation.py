@@ -6,7 +6,12 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List
 
-from .documentation import DocumentChunk, DocumentSection, load_markdown_documents, make_chunks
+from .documentation import (
+    DocumentChunk,
+    DocumentSection,
+    load_markdown_documents,
+    make_chunks,
+)
 
 
 @dataclass(slots=True)
@@ -150,7 +155,9 @@ def _summarize_section(section: DocumentSection) -> str:
     return _clean_text(section.content)
 
 
-def _compose_complex_answer(headings: List[str], lookup: Dict[str, DocumentSection]) -> str:
+def _compose_complex_answer(
+    headings: List[str], lookup: Dict[str, DocumentSection]
+) -> str:
     parts: List[str] = []
     for heading in headings:
         section = lookup.get(heading)
@@ -166,7 +173,9 @@ def _negative_answer() -> str:
     )
 
 
-def generate_questions(doc_folder: Path | str) -> tuple[List[QAItem], List[DocumentChunk]]:
+def generate_questions(
+    doc_folder: Path | str,
+) -> tuple[List[QAItem], List[DocumentChunk]]:
     """Generate QA items and document chunks from markdown corpus."""
 
     sections = load_markdown_documents(doc_folder)

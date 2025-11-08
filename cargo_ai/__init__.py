@@ -1,6 +1,11 @@
 """CargoHub AI toolkit for RAG, QA generation, and hybrid chat."""
 
-from .documentation import DocumentChunk, DocumentSection, load_markdown_documents, make_chunks
+from .documentation import (
+    DocumentChunk,
+    DocumentSection,
+    load_markdown_documents,
+    make_chunks,
+)
 from .qa_generation import generate_datasets, generate_questions
 from .rag_pipeline import HybridResponder, RAGPipeline
 

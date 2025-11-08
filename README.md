@@ -31,6 +31,7 @@ Modern, yapay zeka destekli kargo takip sistemi. Google Gemma-2B-IT modeli ile a
 Proje canlı olarak [https://cargoh0b.streamlit.app/](https://cargoh0b.streamlit.app/) adresinde yayınlanmaktadır.
 
 Demo kullanıcıları ile test edebilirsiniz (örnek: user823, user135, user461).
+Not: Demo ortamında AI asistanı devre dışı bırakılmıştır.
 
 ## 🚀 Kurulum ve Çalıştırma
 

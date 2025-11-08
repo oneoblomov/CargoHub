@@ -7,6 +7,7 @@ from pathlib import Path
 
 import streamlit as st
 from huggingface_hub import login
+
 try:  # Transformers import - GPU bağımlı
     from transformers import pipeline
 except ImportError as e:
@@ -64,7 +65,7 @@ def get_db_connection():
 def load_model():
     if pipeline is None:
         return None  # Transformers yüklenemedi
-    
+
     token = os.environ.get("HF_TOKEN")
     if not token:
         st.warning(f"Hugging Face token bulunamadı: {token}")

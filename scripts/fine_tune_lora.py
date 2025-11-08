@@ -152,7 +152,7 @@ def main() -> None:
         bf16=args.bf16,
         optim="adamw_torch",
         warmup_ratio=0.1,
-        report_to=[]
+        report_to=[],
     )
 
     trainer = Trainer(
